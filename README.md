@@ -18,7 +18,7 @@
 
 •	Nhập lại Mật khẩu
 
-•	Tự động cấp rold là user 
+•	Tự động cấp roleid là user 
 
 - Hệ thống duyệt thông tin và sau đó đăng nhập cho khách hàng ( Kiểm tra xem đã đúng định dạng và cơ sở dữ liệu đã cập nhật thành công chưa)
 => Hiên Popup đăng kí thành công và tự động đăng nhập cho khách hàng / nếu thất bại hiện popup nguyên nhân lỗi theo cách khách hàng hiểu vd: email không đúng định dạng,...
