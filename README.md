@@ -148,6 +148,6 @@ Note: Coupon
 + Data processing: process email and password of users.
 - Function details: data that the user provides must be contained in the database. If the data is
 not suitable, the system will notify an error.
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/29d44991-a9ee-456f-9422-e7b5697e1ece)
+
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
 
