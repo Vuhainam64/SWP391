@@ -1,6 +1,6 @@
 # SWP391
 
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/a59e8385-2bf6-476d-a7b3-34d4e64e74b1)
+![FPT logo](https://github.com/Vuhainam64/SWP391/assets/87472661/a59e8385-2bf6-476d-a7b3-34d4e64e74b1)
 
 # Software Requirement Specification
 # Pet Store 
@@ -137,10 +137,14 @@ Note: Coupon
 •	Mặc định khi tạo product thì product luôn chấp nhận giảm giá nếu ko chập nhận thì vào cài đặt sp r update lại
 
 # Mô Hình EDR
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/8e74aabf-aa9b-40ad-a933-ac4775051cda)
+![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/8e74aabf-aa9b-40ad-a933-ac4775051cda)
 
 #Funtion Requirment 
 1. Welcome Page
+
+![Welcome Form](https://github.com/Vuhainam64/SWP391/assets/87472661/0333bce7-bc13-480e-9ddd-6a4b96c16082)
+
+2. Login Page
 - Function trigger: when user provides correct information and clicks on login button.
 - Function description:
 + Roles: include guests, students, mentors, and admin.
@@ -149,5 +153,5 @@ Note: Coupon
 - Function details: data that the user provides must be contained in the database. If the data is
 not suitable, the system will notify an error.
 
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
+![Login Form](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
 
