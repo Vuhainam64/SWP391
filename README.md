@@ -140,7 +140,9 @@ Note: Coupon
 ![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/8e74aabf-aa9b-40ad-a933-ac4775051cda)
 
 #Funtion Requirment 
+
 	1. Welcome Page
+	
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/d042059c-3298-48f6-8748-5660a8c21e3a)
 
 ![Welcome Form](https://github.com/Vuhainam64/SWP391/assets/87472661/0333bce7-bc13-480e-9ddd-6a4b96c16082)
@@ -156,7 +158,7 @@ not suitable, the system will notify an error.
 
 ![Login Form](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
 
-	4. Shop
+	3. Shop
 *View
 
 ![View](https://github.com/Vuhainam64/SWP391/assets/87472661/d048309d-bc2b-4e02-987e-39ae7cee2984)
@@ -172,6 +174,11 @@ not suitable, the system will notify an error.
 *Page Count
 
 ![Page Count](https://github.com/Vuhainam64/SWP391/assets/87472661/53b54b8c-cf5f-4291-bcda-8df68c6caf03)
+
+
+	4. Detail
+	
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/4822832a-4588-45a3-9395-a287eab735f9)
 
 
 	5. Cart
