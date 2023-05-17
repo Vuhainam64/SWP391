@@ -136,7 +136,10 @@ Note: Coupon
 
 •	Mặc định khi tạo product thì product luôn chấp nhận giảm giá nếu ko chập nhận thì vào cài đặt sp r update lại
 
-#Functional complexity analysis
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/47876a4a-8137-4672-aedf-95e4071ad776)
+
+
+# Functional complexity analysis
 
 ![Functional complexity analysis](https://github.com/Vuhainam64/SWP391/assets/87472661/55614953-6c11-4662-9c00-1bd7acc3795c)
 
@@ -144,7 +147,7 @@ Note: Coupon
 # Mô Hình EDR
 ![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/8e74aabf-aa9b-40ad-a933-ac4775051cda)
 
-#Funtion Requirment 
+# Funtion Requirment 
 
 	1. Welcome Page
 	
