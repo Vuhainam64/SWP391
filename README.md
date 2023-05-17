@@ -138,6 +138,10 @@ Note: Coupon
 
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/47876a4a-8137-4672-aedf-95e4071ad776)
 
+# User Authorization
+
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/2487c63d-8715-4b56-bf14-43fb3d2733a5)
+
 
 # Functional complexity analysis
 
