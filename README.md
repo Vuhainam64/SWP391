@@ -136,6 +136,11 @@ Note: Coupon
 
 •	Mặc định khi tạo product thì product luôn chấp nhận giảm giá nếu ko chập nhận thì vào cài đặt sp r update lại
 
+#Functional complexity analysis
+
+![Functional complexity analysis](https://github.com/Vuhainam64/SWP391/assets/87472661/55614953-6c11-4662-9c00-1bd7acc3795c)
+
+
 # Mô Hình EDR
 ![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/8e74aabf-aa9b-40ad-a933-ac4775051cda)
 
@@ -185,6 +190,6 @@ not suitable, the system will notify an error.
 
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/85aa64a6-7ea2-43bb-8398-21f37c15a47f)
 
+{@googleslide: https://docs.google.com/spreadsheets/d/1ag1gN8NNxO2CBG8T8pu5nh_WUw992iegwv0a8ylVtY8/edit#gid=0}
 
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRPzZ-bz5bzq-FPcTkrhDKYzA8iI0R__QtyGpGr2BEjaevvlpfabWajEXkT1IR738kqleMvgZlh3IaO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
