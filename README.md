@@ -197,6 +197,6 @@ not suitable, the system will notify an error.
 
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/85aa64a6-7ea2-43bb-8398-21f37c15a47f)
 
-{@googleslide: https://docs.google.com/spreadsheets/d/1ag1gN8NNxO2CBG8T8pu5nh_WUw992iegwv0a8ylVtY8/edit#gid=0}
+
 
 
