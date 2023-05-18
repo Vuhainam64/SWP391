@@ -94,6 +94,17 @@ create table PRODUCT(
 );
 GO
 
+-- Create IMAGE table
+RAISERROR('Creating Table IMAGE....',0,1)
+create table IMAGE(
+	imageID varchar(50) primary key,
+	productID varchar(50),
+	productImage varchar(200),
+	constraint FK_IMAGE_PRODUCT foreign key(productID) references PRODUCT(productID)
+);
+GO
+
+
 -- Create COUPON table
 RAISERROR('Creating Table COUPON....',0,1)
 create table COUPON(
