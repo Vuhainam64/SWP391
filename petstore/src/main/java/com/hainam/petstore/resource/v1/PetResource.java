@@ -29,16 +29,17 @@ public class PetResource {
     }
 
     @GET
-    @Path("{productId}")
+    @Path("/product/{productId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Product getProductById(@PathParam("productId") String productId) {
         return dao.getProductById(Integer.parseInt(productId));
     }
-
+    
     @GET
-    @Path("{category}")
+    @Path("/category/{category}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Product getCategory(@PathParam("category") String category) {
-        return (Product) dao.getAllProductByCategory(category);
+    public List<Product> getCategory(@PathParam("category") String category) {
+        return dao.getAllProductByCategory(category);
     }
+
 }

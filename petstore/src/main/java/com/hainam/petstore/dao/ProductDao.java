@@ -108,19 +108,16 @@ public class ProductDao {
 
     // Lấy ra các cuốn sách của tác giả nào đó
     public List<Product> getAllProductByCategory(String category) {
-
         PreparedStatement stm;
         ResultSet rs;
-
         List<Product> productList = new ArrayList();
 
         try {
-
-            String sql = "SELECT PRODUCT FROM category WHERE category = ?";
+            String sql = "SELECT * FROM PRODUCT WHERE category LIKE ?";
             stm = conn.prepareStatement(sql);
             stm.setString(1, category);
-
             rs = stm.executeQuery();
+
             while (rs.next()) {
                 productList.add(new Product(rs.getInt("productId"),
                         rs.getString("productName"),
@@ -139,9 +136,9 @@ public class ProductDao {
             return productList;
 
         } catch (Exception ex) {
-            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }
-    
+
 }
