@@ -17,8 +17,8 @@ import java.util.*;
  *
  * @author vuhai
  */
-@Path("v1/pets")
-public class PetResource {
+@Path("v1/product")
+public class ProductResource {
 
     private ProductDao dao = ProductDao.getInstance();
 
@@ -29,16 +29,23 @@ public class PetResource {
     }
 
     @GET
-    @Path("/product/{productId}")
+    @Path("{productId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Product getProductById(@PathParam("productId") String productId) {
         return dao.getProductById(Integer.parseInt(productId));
     }
-    
+
+    @GET
+    @Path("/category")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<String> getCategories() {
+        return dao.getCategories();
+    }
+
     @GET
     @Path("/category/{category}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Product> getCategory(@PathParam("category") String category) {
+    public List<Product> getProductByCategory(@PathParam("category") String category) {
         return dao.getAllProductByCategory(category);
     }
 

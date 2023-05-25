@@ -106,6 +106,25 @@ public class ProductDao {
         return null;
     }
 
+    public List<String> getCategories() {
+        List<String> categories = new ArrayList<>();
+        PreparedStatement stm;
+        ResultSet rs;
+
+        try {
+            String sql = "SELECT DISTINCT category FROM PRODUCT";
+            stm = conn.prepareStatement(sql);
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                categories.add(rs.getString("category"));
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return categories;
+    }
+
     // Lấy ra các cuốn sách của tác giả nào đó
     public List<Product> getAllProductByCategory(String category) {
         PreparedStatement stm;
