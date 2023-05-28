@@ -160,4 +160,46 @@ public class ProductDao {
         return null;
     }
 
+    public List<Product> searchProduct(String category, String keyword, boolean isSortByPrice, boolean isAscending) {
+        PreparedStatement stm;
+        ResultSet rs;
+        List<Product> productList = new ArrayList<>();
+
+        try {
+            StringBuilder sqlBuilder = new StringBuilder();
+            sqlBuilder.append("SELECT * FROM PRODUCT WHERE category LIKE ? AND productName LIKE ?");
+            if (isSortByPrice) {
+                sqlBuilder.append(" ORDER BY productPrice " + (isAscending ? "ASC" : "DESC"));
+            } else {
+                sqlBuilder.append(" ORDER BY productName " + (isAscending ? "ASC" : "DESC"));
+            }
+            String sql = sqlBuilder.toString();
+
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, "%" + category + "%");
+            stm.setString(2, "%" + keyword + "%");
+
+            rs = stm.executeQuery();
+
+            while (rs.next()) {
+                productList.add(new Product(rs.getInt("productId"),
+                        rs.getString("productName"),
+                        rs.getString("category"),
+                        rs.getString("tags"),
+                        rs.getString("productDescription"),
+                        rs.getInt("productPrice"),
+                        rs.getInt("quantity"),
+                        rs.getBoolean("isCoupon"),
+                        rs.getString("imageMain"),
+                        rs.getString("imageSub1"),
+                        rs.getString("imageSub2"),
+                        rs.getString("imageSub3"),
+                        rs.getString("imageSub4")));
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return productList;
+    }
 }
