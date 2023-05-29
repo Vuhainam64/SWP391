@@ -10,6 +10,7 @@ import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import java.util.*;
 
@@ -49,4 +50,14 @@ public class ProductResource {
         return dao.getAllProductByCategory(category);
     }
 
+    @GET
+    @Path("/search")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Product> searchProduct(
+            @QueryParam("category") String category,
+            @QueryParam("keyword") String keyword,
+            @QueryParam("sort_by_price") boolean isSortByPrice,
+            @QueryParam("ascending") boolean isAscending) {
+        return dao.searchProduct(category, keyword, isSortByPrice, isAscending);
+    }
 }
