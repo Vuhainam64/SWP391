@@ -16,7 +16,7 @@ label{
 }
 
 input[type="text"],
-input[type="email"],
+.type-email,
 input[type="message"],
 textarea {
   width: 100%;
