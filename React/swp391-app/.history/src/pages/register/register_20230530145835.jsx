@@ -1,7 +1,7 @@
 import React from "react";
 import { EnvelopeSimple,LockKey } from "phosphor-react";
 import "./register.css";
-import loginback from "../../assets/products/7200317.jpg";
+import loginback from "../../assets/products/bird.jpg";
 
 export const Register = () => {
   return (

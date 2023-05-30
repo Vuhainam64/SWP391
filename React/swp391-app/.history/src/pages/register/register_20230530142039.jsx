@@ -1,12 +1,12 @@
 import React from "react";
 import { EnvelopeSimple,LockKey } from "phosphor-react";
 import "./register.css";
-import loginback from "../../assets/products/7200317.jpg";
+import background from "./assets/products/bird-loginbackground.jpg";
 
 export const Register = () => {
   return (
     <div className="images">
-    <img src={loginback} alt=""/>
+    <image src="background"></image>
     <div className="container">
     <input type="checkbox" id="check"></input>
     <div className="login form">

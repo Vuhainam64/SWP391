@@ -9,11 +9,12 @@
 .images{
   position: relative;
   width: 100%;
+  height: 100%;
 }
 
 .images img {
   width: 100%;
-  height: auto;
+  max-height: 926.4px;
 }
 
 .container{

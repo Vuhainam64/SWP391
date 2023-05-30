@@ -6,7 +6,7 @@ import loginback from "../../assets/products/7200317.jpg";
 export const Register = () => {
   return (
     <div className="images">
-    <img src={loginback} alt=""/>
+    <img className="image-b" src={loginback} />
     <div className="container">
     <input type="checkbox" id="check"></input>
     <div className="login form">

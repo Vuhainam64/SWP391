@@ -6,18 +6,17 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.images{
-  position: relative;
-  width: 100%;
-}
 
-.images img {
+.images{
+  position: absolute;
   width: 100%;
-  height: auto;
+  max-width: 1000px;
+  height: 100%;
+  background: red;
 }
 
 .container{
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
