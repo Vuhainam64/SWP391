@@ -66,7 +66,7 @@ public class ProductDao {
                 ));
             }
         } catch (Exception ex) {
-            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return productList;
     }
@@ -201,5 +201,77 @@ public class ProductDao {
             Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return productList;
+    }
+
+    // Thêm sản phẩm mới vào database
+    public void addProduct(Product product) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        try {
+            String sql = "INSERT INTO PRODUCT (productName, category, tags, productDescription, productPrice, quantity, isCoupon, imageMain, imageSub1, imageSub2, imageSub3, imageSub4)"
+                    + " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, product.getProductName());
+            stm.setString(2, product.getCategory());
+            stm.setString(3, product.getTags());
+            stm.setString(4, product.getProductDescription());
+            stm.setInt(5, product.getProductPrice());
+            stm.setInt(6, product.getQuantity());
+            stm.setBoolean(7, product.isCoupon());
+            stm.setString(8, product.getImageMain());
+            stm.setString(9, product.getImageSub1());
+            stm.setString(10, product.getImageSub2());
+            stm.setString(11, product.getImageSub3());
+            stm.setString(12, product.getImageSub4());
+
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    // Xóa sản phẩm theo ID
+    public void deleteProduct(int productId) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        try {
+            String sql = "DELETE FROM PRODUCT WHERE productId = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setInt(1, productId);
+
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    // Cập nhật thông tin sản phẩm
+    public void updateProduct(Product product) {
+        PreparedStatement stm;
+        ResultSet rs;
+
+        try {
+            String sql = "UPDATE PRODUCT SET productName = ?, category = ?, tags = ?, productDescription = ?, productPrice = ?, quantity = ?, isCoupon = ?, imageMain = ?, imageSub1 = ?, imageSub2 = ?, imageSub3 = ?, imageSub4 = ? WHERE productId = ?";
+            stm = conn.prepareStatement(sql);
+            stm.setString(1, product.getProductName());
+            stm.setString(2, product.getCategory());
+            stm.setString(3, product.getTags());
+            stm.setString(4, product.getProductDescription());
+            stm.setInt(5, product.getProductPrice());
+            stm.setInt(6, product.getQuantity());
+            stm.setBoolean(7, product.isCoupon());
+            stm.setString(8, product.getImageMain());
+            stm.setString(9, product.getImageSub1());
+            stm.setString(10, product.getImageSub2());
+            stm.setString(11, product.getImageSub3());
+            stm.setString(12, product.getImageSub4());
+            stm.setInt(13, product.getProductId());
+
+            stm.executeUpdate();
+        } catch (Exception ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
