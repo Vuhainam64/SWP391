@@ -7,13 +7,13 @@ export const Contact = () => {
         <div className="form-contact">
         <form>
             <label>Name: </label>
-            <input type="text" id="name" required />
+            <input className="name-contact" type="text" id="name" required />
 
             <label>Email: </label>
-            <input className="type-email" type="email" id="email" required />
+            <input className="email-contact" type="email" id="email" required />
 
             <label>Message: </label>
-            <input type="message" id="message" required />
+            <input className="message-contact" type="message" id="message" required />
 
             <input type="submit" value="Submit"/>
         </form>
