@@ -1,8 +1,8 @@
 import React from "react";
 import { PRODUCTS } from "../../products";
 import { Product } from "./product";
-import { ArrowRight  } from "phosphor-react";
 import "./shop.css";
+import ReactPaginate from "react-paginate";
 
 export const Shop = () => {
   return (
@@ -49,18 +49,15 @@ export const Shop = () => {
       </div>
       <div className="page-count">
         <div className="page-number">
-          <table>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <ArrowRight size={20}  style={{}}/>
-            </tr>
-          </table>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+          </ul>
         </div>
       </div>
     </div>

@@ -128,3 +128,6 @@
     cursor: pointer;
 }
 
+.page-number th:selection {
+    border-radius: 100%;
+}

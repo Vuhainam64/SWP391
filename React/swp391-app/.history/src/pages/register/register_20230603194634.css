@@ -15,7 +15,6 @@
   background-image: url(../../assets/products/bird.jpg);
   background-position: center;
   background-size: cover;
-  color: white;
 }
 
 .container{
@@ -75,7 +74,7 @@
 
 .form a{
   font-size: 16px;
-  color: #20ffd6;
+  color: #009579;
   text-decoration: none;
 }
 
@@ -105,7 +104,7 @@
 }
 
 .signup label{
-  color: #20ffd6;
+  color: #009579;
   cursor: pointer;
 }
 

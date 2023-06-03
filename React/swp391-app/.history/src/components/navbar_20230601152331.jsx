@@ -15,7 +15,7 @@ export const Navbar = () => {
         <div className="middle">
           <Link to="/home"> Home </Link>
           <Link to="/about">About</Link>
-          <Link to="/">Shop</Link>
+          <Link to="/shop">Shop</Link>
           <Link to="/contact"> Contact</Link>
         </div>
         <div className="end">
@@ -23,7 +23,7 @@ export const Navbar = () => {
             <ShoppingCart size={40} />
           </Link>
             <Link to="/register"> 
-              <User size={40}/>
+                <User size={40}/>
             </Link>
         </div>
       </div>

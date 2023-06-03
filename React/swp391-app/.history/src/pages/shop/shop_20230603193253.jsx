@@ -49,18 +49,16 @@ export const Shop = () => {
       </div>
       <div className="page-count">
         <div className="page-number">
-          <table>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <ArrowRight size={20}  style={{}}/>
-            </tr>
-          </table>
+          <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <ArrowRight size={20} />
+          </ul>
         </div>
       </div>
     </div>

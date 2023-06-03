@@ -23,7 +23,7 @@ export const Navbar = () => {
             <ShoppingCart size={40} />
           </Link>
             <Link to="/register"> 
-              <User size={40}/>
+                <User size={40}/>
             </Link>
         </div>
       </div>

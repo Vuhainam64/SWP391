@@ -128,3 +128,7 @@
     cursor: pointer;
 }
 
+.page-number th:selection {
+    border-radius: 100%;
+    background-color: aqua;
+}

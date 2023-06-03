@@ -72,7 +72,6 @@
 .form-shop {
     display: flex;
     margin: 50px 10px 10px 80px;
-    width: 100%;
 }
 
 .form-shop select {
@@ -80,7 +79,7 @@
 }
 
 .form-shop input {
-    padding: 14px;
+    padding: 14px 50px 14px 14px;
     margin: 10px 10px 10px 0;
     width: 100%;
 }
@@ -118,13 +117,3 @@
 .sort-shop select{
     padding: 14px 32px;
 }
-
-.page-count {
-    display: flex;
-    margin: 50px 20px 100px 100px;
-}
-.page-number th {
-    padding: 0 10px;
-    cursor: pointer;
-}
-

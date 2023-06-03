@@ -1,7 +1,6 @@
 import React from "react";
 import { PRODUCTS } from "../../products";
 import { Product } from "./product";
-import { ArrowRight  } from "phosphor-react";
 import "./shop.css";
 
 export const Shop = () => {
@@ -32,7 +31,7 @@ export const Shop = () => {
         </div>
       </div>
       <div className="sort-shop">
-      <label>
+        <label>
             <select>
               <option selected> Default Sorting </option>
               <option>A To Z</option>
@@ -46,22 +45,6 @@ export const Shop = () => {
         {PRODUCTS.map((product) => (
           <Product data={product} />
         ))}
-      </div>
-      <div className="page-count">
-        <div className="page-number">
-          <table>
-          <tr>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <ArrowRight size={20}  style={{}}/>
-            </tr>
-          </table>
-        </div>
       </div>
     </div>
   );

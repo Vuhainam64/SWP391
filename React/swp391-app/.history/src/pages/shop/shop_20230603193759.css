@@ -121,10 +121,5 @@
 
 .page-count {
     display: flex;
-    margin: 50px 20px 100px 100px;
+    margin: 50px 20px 100px 20px;
 }
-.page-number th {
-    padding: 0 10px;
-    cursor: pointer;
-}
-

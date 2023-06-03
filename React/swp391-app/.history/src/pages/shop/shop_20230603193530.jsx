@@ -58,7 +58,7 @@ export const Shop = () => {
             <th>5</th>
             <th>6</th>
             <th>7</th>
-            <ArrowRight size={20}  style={{}}/>
+            <ArrowRight size={20} />
             </tr>
           </table>
         </div>

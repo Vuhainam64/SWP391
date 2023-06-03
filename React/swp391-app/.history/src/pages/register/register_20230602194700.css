@@ -12,10 +12,9 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/products/bird.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url(../../assets/products/bird.jpg);
   background-position: center;
   background-size: cover;
-  color: white;
 }
 
 .container{
@@ -25,9 +24,9 @@
   transform: translate(-50%,-50%);
   max-width: 480px;
   width: 100%;
+  background: #fff;
   border-radius: 7px;
-  box-shadow: -3px -3px 9px #aaa9a9a2,
-              3px 3px 7px rgba(147, 149, 151, 0.671);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
 
 .container .registration{
@@ -75,7 +74,7 @@
 
 .form a{
   font-size: 16px;
-  color: #20ffd6;
+  color: #009579;
   text-decoration: none;
 }
 
@@ -105,7 +104,7 @@
 }
 
 .signup label{
-  color: #20ffd6;
+  color: #009579;
   cursor: pointer;
 }
 
