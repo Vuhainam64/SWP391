@@ -4,15 +4,28 @@ import { PRODUCTS } from "../../products";
 import { Product } from "./home-product";
 import birdImage from "./../../assets/products/bird-home.jpg";
 import contactImage from "./../../assets/products/contact_img.png" ;
+import aboutUs from "./../../assets/products/about_img.png"
 import { Bathtub, Egg, SoccerBall, Heart } from "phosphor-react";
+import { Link } from "react-router-dom";
 export const Home = () => {
     return(
+        
         <div className="home">
         <div className="welcome">
-            <h1><span className="hi-text">Hi</span> Welcome To Our Bird Food Store</h1>
-            <button className="shop-now-btn">Shop Now</button>
             <img src={birdImage} alt=""/>
+            <h1><span className="hi-text">Hi</span> Welcome To Our Bird Food Store</h1>
+            <Link to="/"><button className="shop-now-btn">Shop Now</button></Link>
         </div>  
+        <div className="about-us">
+            <div className="about-us-image">
+            <img src={aboutUs}></img>
+            </div>
+            <div className="about-us-info">
+            <div className="about-us-title"><h1>Premium <span className="bird-food-text">Bird Food</span> Manufacturer </h1></div>
+            <div className="about-us-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est earum modi libero beatae aliquam cum, nihil itaque pariatur quae a, expedita amet. Aperiam perspiciatis numquam aut voluptatem. Sit, ea quaerat.</div>
+            <Link to ="/about"><button className="read-more-btn-about">Read more</button></Link>
+            </div>
+        </div>
         <div className=" best-seller">
             <h1 className="best-seller-title">Best <span className="seller">Seller</span></h1>
             <div className="products">
