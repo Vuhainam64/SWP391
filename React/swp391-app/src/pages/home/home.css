@@ -39,7 +39,7 @@
       border: 1px solid white;;
       border-radius: 4px;
       cursor: pointer;
-      transition: transform 0.8s ease;
+      transition: transform 0.5s ease;
       transition: background-color 0.5s ease;
       transition: border 0.5 ease;
   }
@@ -138,7 +138,7 @@
   width: auto;
   text-align: center;
   background-color: transparent;
-  color: white;
+  color: black;
   padding: 10px 20px;
   font-size: 16px;
   border: 1px solid black;;
@@ -150,6 +150,7 @@
 .read-more-btn:hover{
     color: white;
     background-color: orange;
+    border: orange;
 }
 .services-icon {
   color:orange;

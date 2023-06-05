@@ -42,26 +42,21 @@ export const Home = () => {
     <div class="box">
         <Bathtub className="services-icon" size={32} />
         <h3>Spa & Grooming</h3>
-        <a href="#" class="read-more-btn">Read More</a>
+        <Link to ="/about"> <button className="read-more-btn">Read More</button></Link>
     </div>
 
     <div class="box">
         <Egg className="services-icon" size={32} />
         <h3>Healthy Meal</h3>
-        <a href="#" class="read-more-btn">Read More</a>
+        <Link to ="/about"><button className="read-more-btn">Read More</button></Link>
     </div>
 
-    <div class="box">
-    <SoccerBall className="services-icon" size={32} />
-        <i class="fas fa-baseball-ball"></i>
-        <h3>Activity Exercise</h3>
-        <a href="#" class="read-more-btn">Read More</a>
-    </div>
+   
 
     <div class="box">
     <Heart className="services-icon" size={32} />
         <h3>Health Care</h3>
-        <a href="#" class="read-more-btn">Read More</a>
+        <Link to ="/about"><button className="read-more-btn">Read More</button></Link>
     </div>
 
 </div>
@@ -85,10 +80,7 @@ export const Home = () => {
                 </div>
                 </div>
         </div>
-       
-        <footer className="home-footer">
-        Created By SWP391 | All Rights Reserved!
-        </footer>
+    
        
         </div>
     );
