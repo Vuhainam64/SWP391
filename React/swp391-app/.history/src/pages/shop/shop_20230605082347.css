@@ -114,9 +114,7 @@
     padding: 16px;
     border: 1px solid;
     border-radius: 30px;
-    background-image: url(../../assets/products/7200317.jpg);
-  background-position: center;
-  background-size: cover;
+    background-color: rgba(202, 193, 193, 0.644);
 }
 
 .sort-shop {

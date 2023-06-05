@@ -108,15 +108,7 @@
 
 .sort {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 20px 0 20px;
-    padding: 16px;
-    border: 1px solid;
-    border-radius: 30px;
-    background-image: url(../../assets/products/7200317.jpg);
-  background-position: center;
-  background-size: cover;
+    justify-content: space-between;
 }
 
 .sort-shop {
@@ -138,13 +130,12 @@
 }
 
 .page-number-count li {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    background-color: aqua;
+    margin: 0 14px;
+    padding: 10px;
 }
 
 .page-number-count li:hover {
     background-color: aqua;
+    border-radius: 100rem;
     padding: 10px;
 }
