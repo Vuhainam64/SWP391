@@ -1,7 +1,8 @@
 .about{
    /*  display: flex;
     flex-direction: column; */
-    margin:50px
+    margin:50px;
+   
 }
 .about img{
     width: 640px;

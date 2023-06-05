@@ -1,33 +1,8 @@
-.contact{
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-}
-.title-contact{
-    text-align: center;
-}
+
 label{
     display: block;
     margin-top: 10px;
 }
-.form-contact{
-
-    text-align: center;
-}
-
-.name-contact,
-.email-contact,
-.message-contact,
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
 input[type="submit"] {
     background-color: #4CAF50;
     color: white;
@@ -44,4 +19,37 @@ input[type="submit"] {
   
   textarea {
     height: 100px;
+  }
+  .contact-main{
+    display: flex;
+    align-items: center;
+  }
+  .talk-to-us{
+    
+    align-items: center;
+    flex:1;
+    margin:30px;
+    top:0px;
+  }
+  .form-contact{
+    border: 1px solid transparent;
+    border-radius: 20px 20px 20px 20px;
+    flex: 2;
+    margin: 0 10%;
+    background-color: rgb(186,254,102);
+    padding: 0px 30px;
+    padding-bottom:25%;
+    align-items: center;
+  
+  }
+
+  .contact-mail,
+  .contact-place,
+  .contact-phone{
+    font-weight: 600;
+  }
+  .chat,
+  .visit,
+  .call{
+    margin-bottom: 20px
   }
