@@ -30,6 +30,7 @@ function App() {
           <Footer />
         </Router>
       </ShopContextProvider>
+      
     </div>
   );
 }

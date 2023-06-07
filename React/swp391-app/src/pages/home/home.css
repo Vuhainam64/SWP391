@@ -100,7 +100,7 @@
   color: orange;
 }
 .product-item{
-  margin: 10px
+  
 }
 .our-services{
   text-align: center;
@@ -119,10 +119,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0 50px;
+  margin: 0 150px;
   border: 1px  ;
   border-radius: 4px 20px 20px 20px;
-  padding: 20px;
+  padding: 20px 20px;
   width: 208px;
   height: 195px;
   background-color: rgb(233, 233, 233);

@@ -17,12 +17,21 @@
 }
 
 .product {
+<<<<<<< HEAD
   border-radius: 15px;
   margin: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+=======
+    border-radius: 15px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+>>>>>>> 41645fa791ead08630c65cb2060ce9e838430bf0
 }
 
 .product img {
