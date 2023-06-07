@@ -110,7 +110,7 @@ b {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px 20px 0 20px;
+  margin: 10px 20px 0 20px;
   padding: 16px;
   border: 1px solid;
   border-radius: 30px;
@@ -135,25 +135,20 @@ b {
   display: flex;
   list-style: none;
   padding: 14px;
+  cursor: pointer;
 }
 
 .page-number-count li {
-  margin: 0 16px;
+  margin: 0 10px;
   padding: 10px 20px;
-  width: 40px;
-  height: 40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  border: 1px solid rgb(57, 237, 57);
-  font-weight: 600;
-  cursor: pointer;
-  border-radius: 50px;
+  border-radius: 100%;
+}
+
+.icon-arrow{
+  background-color: white;
 }
 
 .page-number-count li:hover {
-  background-color: rgb(57, 237, 57);
-  color: black;
+  background-color: rgb(240, 239, 239);
   padding: 10px 20px;
 }

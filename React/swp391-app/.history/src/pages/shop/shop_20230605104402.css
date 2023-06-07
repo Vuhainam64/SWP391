@@ -149,7 +149,6 @@ b {
   border: 1px solid rgb(57, 237, 57);
   font-weight: 600;
   cursor: pointer;
-  border-radius: 50px;
 }
 
 .page-number-count li:hover {

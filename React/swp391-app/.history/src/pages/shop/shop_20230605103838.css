@@ -138,22 +138,17 @@ b {
 }
 
 .page-number-count li {
-  margin: 0 16px;
+  margin: 0 10px;
   padding: 10px 20px;
   width: 40px;
   height: 40px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  border: 1px solid rgb(57, 237, 57);
-  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  border-radius: 50px;
 }
 
 .page-number-count li:hover {
-  background-color: rgb(57, 237, 57);
-  color: black;
+  background-color: rgb(240, 239, 239);
   padding: 10px 20px;
 }

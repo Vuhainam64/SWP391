@@ -58,7 +58,7 @@ export const Shop = () => {
             <li>6</li>
             <li>7</li>
             <li>
-              <ArrowRight size={16} />
+              <ArrowRight size={20} />
             </li>
           </ul>
         </div>

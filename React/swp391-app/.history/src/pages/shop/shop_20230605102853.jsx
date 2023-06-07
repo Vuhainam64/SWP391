@@ -57,9 +57,11 @@ export const Shop = () => {
             <li>5</li>
             <li>6</li>
             <li>7</li>
-            <li>
-              <ArrowRight size={16} />
-            </li>
+            <div className="icon">
+              <li className="arrow">
+                <ArrowRight size={20} />
+              </li>
+            </div>
           </ul>
         </div>
       </div>

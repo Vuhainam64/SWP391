@@ -47,22 +47,6 @@ export const Shop = () => {
           <Product data={product} />
         ))}
       </div>
-      <div className="page-count">
-        <div className="page-number">
-          <ul className="page-number-count">
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-            <li>6</li>
-            <li>7</li>
-            <li>
-              <ArrowRight size={16} />
-            </li>
-          </ul>
-        </div>
-      </div>
     </div>
   );
 };
