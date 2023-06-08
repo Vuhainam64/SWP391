@@ -1,0 +1,48 @@
+.contact{
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    height: 81.7vh;
+}
+.title-contact{
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 10px;
+}
+.form-contact{
+
+    text-align: center;
+}
+
+.name-contact,
+.email-contact,
+.message-contact,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  textarea {
+    height: 100px;
+  }

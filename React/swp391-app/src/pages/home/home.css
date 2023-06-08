@@ -1,0 +1,211 @@
+@import url(https://fonts.googleapis.com/css2?family=Rubik&display=swap);
+@media (max-width: 767px) {
+    
+}
+
+@media (min-width: 768px) {
+
+}
+.welcome {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  
+  .welcome h1 {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    font-family: "Rubik", sans-serif;
+    margin-bottom:10px;
+  }
+  .shop-now-btn{
+      position: absolute;
+      top: 65%;
+      left: 77%;
+      /* transform: translate(-50%, -50%); */
+      text-align: center;
+      background-color: transparent;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 1px solid white;;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.5s ease;
+      transition: background-color 0.5s ease;
+      transition: border 0.5 ease;
+  }
+  .shop-now-btn:hover{
+    transform: translateY(-5px);
+    background-color: rgb(255, 255, 255);
+    color:black;
+    
+  }
+.welcome img {
+    width: 100%;
+    height: auto;
+    cursor: default;
+}
+.hi-text{
+  color: orange;
+  font-weight: 3000;
+}
+
+.about-us{
+  display: flex;
+  align-items: center;
+}
+.about-us-image{
+  flex:1
+}
+.about-us-info{
+  flex:1
+}
+.bird-food-text{
+  color: orange;
+}
+.read-more-btn-about{
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid black;;
+  border-radius: 4px 20px 20px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  
+}
+.read-more-btn-about:hover{
+  background-color: black;
+  color: white;
+}
+
+.best-seller-title{
+    text-align: center;
+    margin-top: 50px;
+}
+.seller{
+  color: orange;
+}
+.product-item{
+  
+}
+.our-services{
+  text-align: center;
+  margin-bottom: 50px;
+}
+.services{
+  color: orange;
+}
+.box-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 150px;
+  border: 1px  ;
+  border-radius: 4px 20px 20px 20px;
+  padding: 20px 20px;
+  width: 208px;
+  height: 195px;
+  background-color: rgb(233, 233, 233);
+}
+
+.box a{
+  text-decoration: none;
+  color: inherit; 
+  font-weight: normal;
+}
+.read-more-btn{
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid black;;
+  border-radius: 4px 20px 20px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+.read-more-btn:hover{
+    color: white;
+    background-color: orange;
+    border: orange;
+}
+.services-icon {
+  color:orange;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.services-icon svg{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.home-contact {
+  display: flex;
+  align-items: center;
+}
+
+.home-contact-image {
+  flex: 2;
+}
+.home-contact-image img{
+  height: 400px;
+  width: auto;
+}
+
+.home-contact-form {
+  flex: 1;
+}
+
+.home-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.our-services-title {
+  margin-bottom: 5%;
+}
+
+.home-contact-form input,
+.home-contact-form textarea {
+  margin-right: 10% ;
+  padding: 5px;
+}
+.home-footer {
+  background-color: #85CC5A;
+  background-image: linear-gradient(to bottom right, #85CC5A, #5CAE22);
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+
+

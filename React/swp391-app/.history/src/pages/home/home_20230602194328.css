@@ -1,0 +1,159 @@
+.welcome {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  
+  .welcome h1 {
+    position: absolute;
+    top: 48%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 10px;
+    width: auto;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    word-wrap: break-word;
+    font-size: 30px;
+  }
+
+.welcome img {
+    width: 100%;
+    
+}
+.hi-text{
+  color: orange;
+  font-weight: 3000;
+}
+.shop-now-btn{
+  position: absolute;
+    bottom: 30%;
+    right: 17%;
+    transform: translateY(-50%);
+    padding: 10px;
+    width: auto;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid white;;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.best-seller-title{
+    text-align: center;
+    margin-top: 50px;
+}
+.seller{
+  color: orange;
+}
+.product-item{
+  margin: 10px
+}
+.our-services{
+  text-align: center;
+}
+.services{
+  color: orange;
+}
+.box-container {
+  display: flex;
+  justify-content: space-between; /* Adjust the spacing between boxes as needed */
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 100px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 208px;
+  height: 195px;
+  background-color: rgb(233, 233, 233);
+}
+
+.box a{
+  text-decoration: none;
+  color: inherit; 
+  font-weight: normal;
+}
+.read-more-btn{
+
+  padding: 10px;
+  width: auto;
+  text-align: center;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid black;;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.services-icon {
+  background-color: orange;
+  color:white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.services-icon svg{
+  position: absolute;
+  width: 24px;
+  height: 24px;
+}
+
+.home-contact {
+  display: flex;
+  align-items: center;
+}
+
+.home-contact-image {
+  flex: 2;
+}
+.home-contact-image img{
+  height: 400px;
+  width: auto;
+}
+
+.home-contact-form {
+  flex: 1;
+}
+
+.home-contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+
+.home-contact-form input,
+.home-contact-form textarea {
+  margin-right: 10% ;
+  padding: 5px;
+}
+.home-footer {
+  background-color: #85CC5A;
+  background-image: linear-gradient(to bottom right, #85CC5A, #5CAE22);
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+
+
+

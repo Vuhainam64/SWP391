@@ -1,0 +1,90 @@
+.about{
+   /*  display: flex;
+    flex-direction: column; */
+    margin:50px;
+   
+}
+.about img{
+    width: 640px;
+    height: auto;
+}
+.about-spa img,
+.about-food img,
+.about-health img{
+    padding:50px
+}
+.about-spa{
+display: flex;
+align-items: center;
+flex:1
+}
+.about-food{
+display: flex;
+align-items: center;
+}
+.about-health{
+display: flex;
+align-items: center;
+}
+.about-health img{
+    height: 640px;
+}
+.about-title{
+    text-align: center;
+    margin: 50px;
+}
+.explore-more-about{
+    margin-top: 10px;
+    text-align: center;
+    align-items: center;
+    padding:12px;
+    border: 1px solid black;
+    border-radius: 1px 20px 20px 1px;
+    background-color: white;
+    color:black;
+    transition: background-color 0.3s ease
+}
+.explore-more-about:hover{
+    background-color: orange;
+    color: white;
+    border: 1px solid orange;
+}
+.bird-food-store-title{
+    color: orange;
+}
+.bird-food-text{
+    color:white;
+    background-color: orangered;
+}
+.about-description{
+   display: grid;
+   grid-template-columns: 50%;
+
+}
+.customer-title{
+    text-align: center;
+    font-size: 50px;
+}
+.review-about{
+    margin-top:100px;
+}
+
+.review-info{
+    display: flex;
+    align-items: center;
+    margin: 0 10%;
+}
+.review-comment-about{
+    display:grid;
+    grid-template-columns: 50%;
+    flex:1;
+}
+.review-info img{
+    width: 25%;
+   
+}
+.review-author-about{
+    margin-top: 20px;
+    color: orange;
+    font-size: 20px;
+}
