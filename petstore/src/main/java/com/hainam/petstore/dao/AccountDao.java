@@ -107,6 +107,26 @@ public class AccountDao {
         }
     }
 
+    public Account getAccountByUserName(String userName) {
+    String query = "SELECT * FROM account WHERE userName = ?";
+    try (PreparedStatement statement = conn.prepareStatement(query)) {
+        statement.setString(1, userName);
+
+        try (ResultSet resultSet = statement.executeQuery()) {
+            if (resultSet.next()) {
+                return mapResultSetToAccount(resultSet);
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        // Handle the exception as needed
+    }
+
+    return null;
+}
+
+    
+    
     private Account mapResultSetToAccount(ResultSet resultSet) throws SQLException {
         Account account = new Account();
         account.setAccountId(resultSet.getInt("accountId"));

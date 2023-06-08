@@ -70,4 +70,17 @@ public class AccountResource {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
     }
+
+    @GET
+    @Path("/username/{username}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAccountByUserName(@PathParam("username") String username) {
+        Account account = dao.getAccountByUserName(username);
+        if (account != null) {
+            return Response.ok(account).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
 }
