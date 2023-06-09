@@ -34,11 +34,11 @@ create table PRODUCT(
 	productPrice decimal(10,2) not null,
 	quantity int not null,
 	isCoupon bit not null,
-	imageMain nvarchar(50) not null,
-	imageSub1 nvarchar(50),
-	imageSub2 nvarchar(50),
-	imageSub3 nvarchar(50),
-	imageSub4 nvarchar(50),
+	imageMain nvarchar(100) not null,
+	imageSub1 nvarchar(100),
+	imageSub2 nvarchar(100),
+	imageSub3 nvarchar(100),
+	imageSub4 nvarchar(100),
 	created_at datetime default current_timestamp,
 	updated_at datetime default current_timestamp
 );
@@ -128,12 +128,18 @@ create table COUPON(
 
 alter table COUPON add constraint FK_COUPON foreign key(productID) references PRODUCT(productId);
 
--- Inserting example data into PRODUCT table
-RAISERROR('Inserting Example Data into PRODUCT Table....',0,1)
-insert into PRODUCT (productName, category, tags, productDescription, productPrice, quantity, isCoupon, imageMain, imageSub1, imageSub2, imageSub3, imageSub4)
-values ('Cat Food', 'Pet Food', 'cat food, pet food', 'This cat food is made from high quality ingredients and provides all the necessary nutrients for your furry friend.', 12.99, 100, 0, 'cat_food_main.jpg', 'cat_food_sub1.jpg', 'cat_food_sub2.jpg', 'cat_food_sub3.jpg', 'cat_food_sub4.jpg'),
-('Dog Food', 'Pet Food', 'dog food, pet food', 'This dog food is made from high quality ingredients and provides all the necessary nutrients for your furry friend.', 18.99, 100, 0, 'dog_food_main.jpg', 'dog_food_sub1.jpg', 'dog_food_sub2.jpg', 'dog_food_sub3.jpg', 'dog_food_sub4.jpg'),
-('Fish Tank', 'Aquariums & Bowls', 'fish tank, aquarium', 'This fish tank is perfect for any home or office. It is made from durable materials and has a sleek and modern design.', 59.99, 50, 0, 'fish_tank_main.jpg', 'fish_tank_sub1.jpg', 'fish_tank_sub2.jpg', 'fish_tank_sub3.jpg', 'fish_tank_sub4.jpg')
+INSERT INTO PRODUCT (productName, category, tags, productDescription, productPrice, quantity, isCoupon, imageMain)
+VALUES 
+('Sunflower Seeds', 'Seed', 'sunflower, seed', 'High-quality sunflower seeds for birds', 6.99, 50, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/648327c422fd1.png'),
+('Safflower Seeds', 'Seed', 'safflower, seed', 'Premium safflower seeds for birds', 8.99, 30, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/648327e39e43d.png'),
+('Nyjer Seeds', 'Seed', 'nyjer, seed', 'Nutritious Nyjer seeds for birds', 12.99, 25, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/64832805ea2ce.png'),
+('Peanuts', 'Wet Food', 'peanuts, wet food', 'Roasted peanuts in a savory broth for birds', 5.99, 80, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/6483281f3b996.png'),
+('Fruit Blend', 'Dry Food', 'fruit blend, dry food', 'A delicious fruit blend for birds with natural ingredients', 9.99, 45, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/6483283bb6b88.png'),
+('Insect Delight', 'Wet Food', 'insects, wet food', 'A protein-rich mix of insects and seeds for birds', 4.99, 60, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/6483286215b4a.png'),
+('Honey Nut Mix', 'Dry Food', 'honey, nut mix', 'A sweet and nutty blend for birds with honey-coated pieces', 7.99, 35, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/6483288616b14.png'),
+('Mealworms', 'Live Food', 'mealworms, live food', 'Live mealworms for birds to satisfy their protein requirements', 9.99, 25, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/6483289e45aed.png'),
+('Suet Cakes', 'Wet Food', 'suet, cake', 'A nutritious suet cake for birds to provide them with energy and warmth', 2.99, 75, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/648328c114c1b.png'),
+('Corn Kernels', 'Dry Food', 'corn kernels, dry food', 'Dried corn kernels for birds to serve as a healthy snack', 3.99, 100, 0, 'https://files.fullstack.edu.vn/f8-prod/public-images/648328db61d3c.png');
 
 -- Inserting example data into USER_INFO table
 RAISERROR('Inserting Example Data into USER_INFO Table....',0,1)

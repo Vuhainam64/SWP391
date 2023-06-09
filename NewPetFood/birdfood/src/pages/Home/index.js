@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import images from '~/assets/images';
@@ -17,6 +17,13 @@ import {
 const cx = classNames.bind(styles);
 
 function Home() {
+    useEffect(() => {
+        fetch('https://tiktok.fullstack.edu.vn/api/users/search?q=hoaa&type=less')
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res);
+            });
+    }, []);
     return (
         <>
             {/* home section starts */}
