@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import images from '~/assets/images';
@@ -17,12 +17,15 @@ import {
 const cx = classNames.bind(styles);
 
 function Home() {
+    const [products, setProducts] = useState([]);
+
     useEffect(() => {
-        fetch('https://tiktok.fullstack.edu.vn/api/users/search?q=hoaa&type=less')
+        fetch('https://vuhainam64.github.io/SWP391/Rest_API/products.json')
             .then((res) => res.json())
-            .then((res) => {
-                console.log(res);
-            });
+            .then((data) => {
+                setProducts(data);
+            })
+            .catch((error) => console.log(error));
     }, []);
     return (
         <>
@@ -66,106 +69,30 @@ function Home() {
                     best <span>seller</span>
                 </h1>
                 <div className={cx('box-container')}>
-                    <div className={cx('box')}>
-                        <div className={cx('icons')}>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faCartShopping} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faEye} />
-                            </Link>
+                    {products.map((product) => (
+                        <div className={cx('box')} key={product.productId}>
+                            <div className={cx('icons')}>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                </Link>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faHeart} />
+                                </Link>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faEye} />
+                                </Link>
+                            </div>
+                            <div className={cx('image')}>
+                                <img src={product.imageMain} alt={product.productName} />
+                            </div>
+                            <div className={cx('content')}>
+                                <h3>{product.productName}</h3>
+                                <div className={cx('amount')}>
+                                    ${product.productPrice.toFixed(2)} - ${(product.productPrice * 2).toFixed(2)}
+                                </div>
+                            </div>
                         </div>
-                        <div className={cx('image')}>
-                            <img src={images.product_01} alt="" />
-                        </div>
-                        <div className={cx('content')}>
-                            <h3>air-dried food</h3>
-                            <div className={cx('amount')}>$15.00 - $30.00</div>
-                        </div>
-                    </div>
-                    <div className={cx('box')}>
-                        <div className={cx('icons')}>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faCartShopping} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faEye} />
-                            </Link>
-                        </div>
-                        <div className={cx('image')}>
-                            <img src={images.product_01} alt="" />
-                        </div>
-                        <div className={cx('content')}>
-                            <h3>air-dried food</h3>
-                            <div className={cx('amount')}>$15.00 - $30.00</div>
-                        </div>
-                    </div>
-                    <div className={cx('box')}>
-                        <div className={cx('icons')}>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faCartShopping} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faEye} />
-                            </Link>
-                        </div>
-                        <div className={cx('image')}>
-                            <img src={images.product_01} alt="" />
-                        </div>
-                        <div className={cx('content')}>
-                            <h3>air-dried food</h3>
-                            <div className={cx('amount')}>$15.00 - $30.00</div>
-                        </div>
-                    </div>
-                    <div className={cx('box')}>
-                        <div className={cx('icons')}>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faCartShopping} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faEye} />
-                            </Link>
-                        </div>
-                        <div className={cx('image')}>
-                            <img src={images.product_01} alt="" />
-                        </div>
-                        <div className={cx('content')}>
-                            <h3>air-dried food</h3>
-                            <div className={cx('amount')}>$15.00 - $30.00</div>
-                        </div>
-                    </div>
-                    <div className={cx('box')}>
-                        <div className={cx('icons')}>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faCartShopping} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faHeart} />
-                            </Link>
-                            <Link to="/d">
-                                <FontAwesomeIcon icon={faEye} />
-                            </Link>
-                        </div>
-                        <div className={cx('image')}>
-                            <img src={images.product_01} alt="" />
-                        </div>
-                        <div className={cx('content')}>
-                            <h3>air-dried food</h3>
-                            <div className={cx('amount')}>$15.00 - $30.00</div>
-                        </div>
-                    </div>
+                    ))}
                 </div>
             </section>
             {/* shop section end */}
