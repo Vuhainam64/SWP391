@@ -1,0 +1,53 @@
+.footer {
+    position: relative;
+    background: url(../../../../assets/images/footer_background.jpg) no-repeat;
+    background-position: center;
+    background-size: center;
+    padding-top: 10rem;
+    padding-bottom: 2rem;
+    width: 100%;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 10rem;
+        width: 100%;
+    }
+
+    .share {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+
+        a {
+            color: #fff;
+            border-color: #fff;
+
+            &:hover {
+                color: #130f40;
+            }
+
+            &::before {
+                background: #fff;
+            }
+
+            i {
+                padding-right: 0.5rem;
+            }
+        }
+    }
+
+    .credit {
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
+        padding: 2rem 1rem;
+        margin-top: 2.5rem;
+
+        span {
+            color: #e67e22;
+        }
+    }
+}
