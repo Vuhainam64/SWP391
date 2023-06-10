@@ -20,7 +20,7 @@ function Home() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/petstore/api/v1/product', { mode: 'cors' })
+        fetch('http://localhost:8080/petstore/api/v1/product')
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);
@@ -69,7 +69,7 @@ function Home() {
                     best <span>seller</span>
                 </h1>
                 <div className={cx('box-container')}>
-                    {products.map((product) => (
+                    {products.slice(0, 8).map((product) => (
                         <div className={cx('box')} key={product.productId}>
                             <div className={cx('icons')}>
                                 <Link to="/d">
