@@ -20,7 +20,7 @@ function Home() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('https://vuhainam64.github.io/SWP391/Rest_API/products.json')
+        fetch('http://localhost:8080/petstore/api/v1/product', { mode: 'cors' })
             .then((res) => res.json())
             .then((data) => {
                 setProducts(data);

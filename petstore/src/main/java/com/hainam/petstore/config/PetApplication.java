@@ -4,6 +4,7 @@
  */
 package com.hainam.petstore.config;
 
+import com.hainam.petstore.filter.CorsFilter;
 import jakarta.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -24,5 +25,6 @@ public class PetApplication extends ResourceConfig{
     //class này chỉ đứng đón api ko xử lí data
     public PetApplication(){
         packages("com.hainam.petstore.resource");
+        register(CorsFilter.class);
     }
 }
