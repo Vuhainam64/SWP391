@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import request from '~/utils/request';
+
 import styles from './Home.module.scss';
 import images from '~/assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,10 +22,10 @@ function Home() {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/petstore/api/v1/product')
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data);
+        request
+            .get('product')
+            .then((res) => {
+                setProducts(res.data);
             })
             .catch((error) => console.log(error));
     }, []);

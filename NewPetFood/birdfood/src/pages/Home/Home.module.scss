@@ -97,74 +97,89 @@
 .shop {
     .box-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
         gap: 1.5rem;
+    }
+    @media (max-width: 800px) {
+        .box-container {
+            grid-template-columns: repeat(1, 1fr); /* 1 items per row */
+        }
+    }
 
-        & .box {
-            position: relative;
-            overflow: hidden;
+    @media (min-width: 801px) and (max-width: 1200px) {
+        .box-container {
+            grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        }
+    }
 
-            &:hover {
-                & .image img {
-                    transform: scale(1.1);
-                }
+    @media (min-width: 1201px) {
+        .box-container {
+            grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+        }
+    }
+    & .box {
+        position: relative;
+        overflow: hidden;
 
-                & .icons {
-                    transform: translateX(0rem);
-                }
-            }
-
-            & .image {
-                height: 45rem;
-                width: 100%;
-                overflow: hidden;
-
-                & img {
-                    height: 100%;
-                    width: 100%;
-                    object-fit: cover;
-                }
+        &:hover {
+            & .image img {
+                transform: scale(1.1);
             }
 
             & .icons {
-                position: absolute;
-                top: 1rem;
-                right: 2rem;
-                z-index: 10;
-                transform: translateX(10rem);
-
-                & a {
-                    display: block;
-                    width: 5rem;
-                    height: 5rem;
-                    line-height: 5rem;
-                    font-size: 2.2rem;
-                    margin-top: 1rem;
-                    background: #fff;
-                    color: #130f40;
-                    text-align: center;
-
-                    &:hover {
-                        color: #fff;
-                        background: #e67e22;
-                    }
-                }
+                transform: translateX(0rem);
             }
+        }
 
-            & .content {
-                padding: 1rem 0;
+        & .image {
+            height: 45rem;
+            width: 100%;
+            overflow: hidden;
+
+            & img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+        & .icons {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            z-index: 10;
+            transform: translateX(10rem);
+
+            & a {
+                display: block;
+                width: 5rem;
+                height: 5rem;
+                line-height: 5rem;
+                font-size: 2.2rem;
+                margin-top: 1rem;
+                background: #fff;
+                color: #130f40;
                 text-align: center;
 
-                & h3 {
-                    font-size: 2.2rem;
-                    color: #130f40;
-                    padding-bottom: 0.5rem;
+                &:hover {
+                    color: #fff;
+                    background: #e67e22;
                 }
+            }
+        }
 
-                & .amount {
-                    font-size: 2rem;
-                    color: #e67e22;
-                }
+        & .content {
+            padding: 1rem 0;
+            text-align: center;
+
+            & h3 {
+                font-size: 2.2rem;
+                color: #130f40;
+                padding-bottom: 0.5rem;
+            }
+
+            & .amount {
+                font-size: 2rem;
+                color: #e67e22;
             }
         }
     }
@@ -322,9 +337,9 @@
         .btn {
             width: 100%;
             text-align: center;
-
+            height: 50px;
             &:hover {
-                background: #130f40;
+                background: #223458;
             }
         }
 

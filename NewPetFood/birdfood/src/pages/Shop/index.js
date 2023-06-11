@@ -1,95 +1,155 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import classNames from 'classnames/bind';
+import request from '~/utils/request';
+
 import styles from './Shop.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faCartShopping, faHeart } from '@fortawesome/free-solid-svg-icons';
+
+const cx = classNames.bind(styles);
 
 function Shop() {
     const [products, setProducts] = useState([]);
-    const [category, setCategory] = useState('');
-    const [sort, setSort] = useState('');
-    const [search, setSearch] = useState('');
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortBy, setSortBy] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 8;
 
     useEffect(() => {
-        fetch('http://localhost:8080/petstore/api/v1/product')
-            .then((res) => res.json())
-            .then((data) => {
-                setProducts(data);
-                setFilteredProducts(data);
+        request
+            .get('product')
+            .then((res) => {
+                setProducts(res.data);
+            })
+            .catch((error) => console.log(error));
+
+        request
+            .get('product/category')
+            .then((res) => {
+                setCategories(res.data);
             })
             .catch((error) => console.log(error));
     }, []);
 
-    useEffect(() => {
-        filterProducts();
-    }, [category, sort, search]);
+    // Handle category change
+    const handleCategoryChange = (event) => {
+        setSelectedCategory(event.target.value);
+    };
 
-    const filterProducts = () => {
-        let filtered = products;
+    // Handle search term change
+    const handleSearchTermChange = (event) => {
+        setSearchTerm(event.target.value);
+    };
 
-        if (category) {
-            filtered = filtered.filter((product) => product.category === category);
-        }
+    // Handle sort by change
+    const handleSortByChange = (event) => {
+        setSortBy(event.target.value);
+    };
 
-        if (search) {
-            filtered = filtered.filter(
-                (product) =>
-                    product.productName.toLowerCase().includes(search.toLowerCase()) ||
-                    product.tags.toLowerCase().includes(search.toLowerCase()),
-            );
-        }
+    // Filter and sort products based on category, search term, and sort by option
+    const filteredAndSortedProducts = products
+        .filter((product) => {
+            const matchesCategory = selectedCategory === '' || product.category === selectedCategory;
+            const matchesSearchTerm = product.productName.toLowerCase().includes(searchTerm.toLowerCase());
+            return matchesCategory && matchesSearchTerm;
+        })
+        .sort((a, b) => {
+            if (sortBy === 'price-low-high') {
+                return a.productPrice - b.productPrice;
+            } else if (sortBy === 'price-high-low') {
+                return b.productPrice - a.productPrice;
+            } else if (sortBy === 'name-az') {
+                return a.productName.localeCompare(b.productName);
+            } else if (sortBy === 'name-za') {
+                return b.productName.localeCompare(a.productName);
+            } else {
+                return 0;
+            }
+        });
 
-        if (sort === 'priceLowToHigh') {
-            filtered = filtered.sort((a, b) => a.productPrice - b.productPrice);
-        } else if (sort === 'priceHighToLow') {
-            filtered = filtered.sort((a, b) => b.productPrice - a.productPrice);
-        }
+    const totalPages = Math.ceil(filteredAndSortedProducts.length / productsPerPage);
 
-        setFilteredProducts(filtered);
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredAndSortedProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    const goToPreviousPage = () => {
+        setCurrentPage(currentPage - 1);
+    };
+
+    const goToNextPage = () => {
+        setCurrentPage(currentPage + 1);
     };
 
     return (
-        <div className={styles.shop}>
-            <div className={styles.category}>
-                <h2>Category</h2>
-                <ul>
-                    <li onClick={() => setCategory('')}>All</li>
-                    <li onClick={() => setCategory('Seed')}>Seed</li>
-                    <li onClick={() => setCategory('Wet Food')}>Wet Food</li>
-                    <li onClick={() => setCategory('Dry Food')}>Dry Food</li>
-                    <li onClick={() => setCategory('Live Food')}>Live Food</li>
-                </ul>
-            </div>
-            <div className={styles.sort}>
-                <h2>Sort</h2>
-                <select value={sort} onChange={(e) => setSort(e.target.value)}>
-                    <option value="">None</option>
-                    <option value="priceLowToHigh">Price: Low to High</option>
-                    <option value="priceHighToLow">Price: High to Low</option>
-                </select>
-            </div>
-            <div className={styles.search}>
-                <h2>Search</h2>
-                <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} />
-            </div>
-            <div className={styles.results}>
-                {filteredProducts.map((product) => (
-                    <div key={product.productId} className={styles.product}>
-                        <img src={product.imageMain} alt={product.productName} />
-                        <h3>{product.productName}</h3>
-                        <p>{product.productDescription}</p>
-                        <p>Price: ${product.productPrice}</p>
-                        <p>Quantity: {product.quantity}</p>
-                    </div>
-                ))}
-            </div>
-            <div className={styles.pagination}>
-                <ul>
-                    <li>1</li>
-                    <li>2</li>
-                    <li>3</li>
-                </ul>
-            </div>
-        </div>
+        <>
+            <section className={cx('shop')} id="shop">
+                <h1 className={cx('heading')}>
+                    <span>Shop</span>
+                </h1>
+                <div className={cx('search-bar')}>
+                    <select value={selectedCategory} onChange={handleCategoryChange}>
+                        <option value="">All Categories</option>
+                        {categories.map((category) => (
+                            <option key={category} value={category}>
+                                {category}
+                            </option>
+                        ))}
+                    </select>
+                    <input
+                        type="text"
+                        placeholder="Search products"
+                        value={searchTerm}
+                        onChange={handleSearchTermChange}
+                    />
+                    <select value={sortBy} onChange={handleSortByChange}>
+                        <option value="">Sort By</option>
+                        <option value="price-low-high">Price (Low to High)</option>
+                        <option value="price-high-low">Price (High to Low)</option>
+                        <option value="name-az">Name (A-Z)</option>
+                        <option value="name-za">Name (Z-A)</option>
+                    </select>
+                </div>
+                <div className={cx('box-container')}>
+                    {currentProducts.map((product) => (
+                        <div className={cx('box')} key={product.productId}>
+                            <div className={cx('icons')}>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faCartShopping} />
+                                </Link>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faHeart} />
+                                </Link>
+                                <Link to="/d">
+                                    <FontAwesomeIcon icon={faEye} />
+                                </Link>
+                            </div>
+                            <div className={cx('image')}>
+                                <img src={product.imageMain} alt={product.productName} />
+                            </div>
+                            <div className={cx('content')}>
+                                <h3>{product.productName}</h3>
+                                <div className={cx('amount')}>
+                                    ${product.productPrice.toFixed(2)} - ${(product.productPrice * 2).toFixed(2)}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                <div className={cx('pagination')}>
+                    <button onClick={goToPreviousPage} disabled={currentPage === 1}>
+                        Previous
+                    </button>
+                    <span>{currentPage}</span>
+                    <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+                        Next
+                    </button>
+                </div>
+            </section>
+        </>
     );
 }
 
