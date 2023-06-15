@@ -7,6 +7,8 @@ const images = {
     aboutImage: require('~/assets/images/Home/about_img.png'),
     product_01: require('~/assets/images/Home/product_01.jpg'),
     contact: require('~/assets/images/Home/contact_img.png'),
+    Login: require('~/assets/images/Home/login.png'),
+
 };
 
 export default images;

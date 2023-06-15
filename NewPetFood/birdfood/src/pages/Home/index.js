@@ -37,7 +37,7 @@ function Home() {
                     <h3>
                         <span>hi</span> welcome to our bird food
                     </h3>
-                    <Link to="/" className={cx('btn')}>
+                    <Link to="/shop" className={cx('btn')}>
                         shop now
                     </Link>
                 </div>
@@ -74,13 +74,13 @@ function Home() {
                     {products.slice(0, 8).map((product) => (
                         <div className={cx('box')} key={product.productId}>
                             <div className={cx('icons')}>
-                                <Link to="/d">
+                                <Link to={`/detail?product=${product.productId}`}>
                                     <FontAwesomeIcon icon={faCartShopping} />
                                 </Link>
                                 <Link to="/d">
                                     <FontAwesomeIcon icon={faHeart} />
                                 </Link>
-                                <Link to="/d">
+                                <Link to={`/detail?product=${product.productId}`}>
                                     <FontAwesomeIcon icon={faEye} />
                                 </Link>
                             </div>

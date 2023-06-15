@@ -7,7 +7,7 @@
     border-radius: 4px;
     font-size: 1.6rem;
     font-weight: 700;
-    font-family: 'ProximaNova', sans-serif;
+    font-family: "ProximaNova", sans-serif;
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -53,7 +53,7 @@
 
     &:hover {
         border-color: var(--primary);
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #e67e22;
     }
 }
 

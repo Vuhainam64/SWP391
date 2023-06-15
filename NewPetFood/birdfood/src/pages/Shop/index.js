@@ -123,7 +123,7 @@ function Shop() {
                                 <Link to="/d">
                                     <FontAwesomeIcon icon={faHeart} />
                                 </Link>
-                                <Link to="/d">
+                                <Link to="/product/{product.productId}">
                                     <FontAwesomeIcon icon={faEye} />
                                 </Link>
                             </div>

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -54,7 +56,13 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const currentUser = false;
+    const [cookies] = useCookies(['isLoggedIn']);
+    const [currentUser, setCurrentUser] = useState(false);
+
+    useEffect(() => {
+        // Check if the user cookie exists and set currentUser accordingly
+        setCurrentUser(cookies.isLoggedIn === 'true');
+    }, [cookies]);
 
     // Handle logic
     const handleMenuChange = (menuItem) => {
@@ -89,10 +97,10 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to="/" className={cx('logo')}>
                     <img src={images.logo} alt="BirdFood" />
                     <h2> Bird Food</h2>
-                </div>
+                </Link>
 
                 <nav className={cx('navbar')}>
                     <Link to="/" className="nav-link">
@@ -113,32 +121,39 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[0, 50]} content="Cart" placement="bottom">
+                                <Link to="/cart">
+                                    <button className={cx('action-btn')}>
+                                        <CartIcon />
+                                        <span className={cx('badge')}>12</span>
+                                    </button>
+                                </Link>
+                            </Tippy>
+                            <Menu items={userMenu} onChange={handleMenuChange}>
+                                <Image
+                                    className={cx('user-avatar')}
+                                    src="https://files.fullstack.edu.vn/f8-prod/public-images/6486634cba202.png"
+                                    alt="Nguyen Van A"
+                                />
+                            </Menu>
+                        </>
+                    ) : (
+                        <>
+                            <Tippy delay={[0, 50]} content="Cart" placement="bottom">
                                 <button className={cx('action-btn')}>
                                     <CartIcon />
                                     <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
-                        </>
-                    ) : (
-                        <>
-                            <Button text>Upload</Button>
-                            <Button primary>Log in</Button>
+                            <Link to="/login" className="nav-link">
+                                <Button primary>Log in</Button>
+                            </Link>
+                            <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            </Menu>
                         </>
                     )}
-
-                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
-                        {currentUser ? (
-                            <Image
-                                className={cx('user-avatar')}
-                                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
-                                alt="Nguyen Van A"
-                            />
-                        ) : (
-                            <button className={cx('more-btn')}>
-                                <FontAwesomeIcon icon={faEllipsisVertical} />
-                            </button>
-                        )}
-                    </Menu>
                 </div>
             </div>
         </header>
