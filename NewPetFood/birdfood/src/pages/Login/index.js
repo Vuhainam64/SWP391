@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import request from '~/utils/request';
 import images from '~/assets/images';
+import { Link } from 'react-router-dom';
 
 import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
@@ -11,11 +12,25 @@ function Login({ onAuthSuccess }) {
     const [loginForm, setLoginForm] = useState({ email: '', accountPassword: '' });
     const [signupForm, setSignupForm] = useState({
         userName: '',
-        accountaccountPassword: '',
+        accountPassword: '',
         email: '',
         accountRole: '',
         userId: '',
     });
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Check if the user is already logged in by checking the cookie
+        const isLoggedInCookie = document.cookie
+            .split(';')
+            .map((cookie) => cookie.trim())
+            .find((cookie) => cookie.startsWith('isLoggedIn='));
+
+        if (isLoggedInCookie) {
+            const isLoggedInValue = isLoggedInCookie.split('=')[1];
+            setIsLoggedIn(isLoggedInValue === 'true');
+        }
+    }, []);
 
     const showLoginForm = () => {
         setLoginVisible(true);
@@ -34,6 +49,7 @@ function Login({ onAuthSuccess }) {
         const { name, value } = e.target;
         setSignupForm((prevForm) => ({ ...prevForm, [name]: value }));
     };
+
     const handleLoginFormSubmit = (e) => {
         e.preventDefault();
 
@@ -47,7 +63,8 @@ function Login({ onAuthSuccess }) {
                 // Save a cookie to indicate that the user is logged in
                 document.cookie = 'isLoggedIn=true; path=/'; // Set the cookie with a name "isLoggedIn" and value "true"
 
-                onAuthSuccess(true); // Call the onAuthSuccess function with the value 'true'
+                setIsLoggedIn(true); // Update the isLoggedIn state to true
+                window.location.reload();
             })
             .catch((error) => {
                 // Handle login error
@@ -78,7 +95,7 @@ function Login({ onAuthSuccess }) {
                 // Handle successful signup
                 // Optionally, you can redirect the user to a success page or perform other actions
                 console.log('Account created successfully');
-                onAuthSuccess(true); // Call the onAuthSuccess function with the value 'true'
+                setIsLoggedIn(true); // Update the isLoggedIn state to true
             })
             .catch((error) => {
                 // Handle signup error
@@ -103,125 +120,136 @@ function Login({ onAuthSuccess }) {
                 <div className={cx('row')}>
                     <div className={cx('col')}></div>
                     <div className={cx('col', 'cen')}>
-                        <div className={cx('form')}>
-                            <div className={cx('btn')}>
-                                <button className={cx('loginBtn', { active: isLoginVisible })} onClick={showLoginForm}>
-                                    LOG IN
-                                </button>
-                                <button
-                                    className={cx('signUpBtn', { active: !isLoginVisible })}
-                                    onClick={showSignUpForm}
-                                >
-                                    SIGN UP
-                                </button>
+                        {isLoggedIn ? (
+                            <div className={cx('islogin')}>
+                                <h3>Login Successfully!</h3>
+                                <Link to="/" className={cx('return')}>
+                                    Return to Home
+                                </Link>
                             </div>
-                            <form
-                                className={cx('signUp')}
-                                style={{ display: isLoginVisible ? 'none' : 'block' }}
-                                onSubmit={handleSignupFormSubmit}
-                            >
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="text"
-                                        id="userName"
-                                        placeholder="User Name"
-                                        autoComplete="off"
-                                        name="userName"
-                                        value={signupForm.userName}
-                                        onChange={handleSignupFormChange}
-                                    />
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="email"
-                                        placeholder="Email ID"
-                                        name="email"
-                                        required
-                                        autoComplete="off"
-                                        value={signupForm.email}
-                                        onChange={handleSignupFormChange}
-                                    />
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="password"
-                                        id="accountaccountPassword"
-                                        placeholder="accountPassword"
-                                        required
-                                        autoComplete="off"
-                                        name="accountPassword"
-                                        value={signupForm.accountPassword}
-                                        onChange={handleSignupFormChange}
-                                    />
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="password"
-                                        id="confirmaccountPassword"
-                                        placeholder="Confirm accountPassword"
-                                        required
-                                        autoComplete="off"
-                                        name="confirmaccountPassword"
-                                    />
-                                </div>
-                                <div className={cx('checkBox')}>
-                                    <input type="checkbox" name="checkbox" id="checkbox" />
-                                    <span className={cx('text')}>I agree with terms & conditions</span>
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <button type="submit" name="op" value="signup" className={cx('btn2')}>
-                                        REGISTER
+                        ) : (
+                            <div className={cx('form')}>
+                                <div className={cx('btn')}>
+                                    <button
+                                        className={cx('loginBtn', { active: isLoginVisible })}
+                                        onClick={showLoginForm}
+                                    >
+                                        LOG IN
+                                    </button>
+                                    <button
+                                        className={cx('signUpBtn', { active: !isLoginVisible })}
+                                        onClick={showSignUpForm}
+                                    >
+                                        SIGN UP
                                     </button>
                                 </div>
-                            </form>
-
-                            <form
-                                className={cx('login')}
-                                style={{ display: isLoginVisible ? 'block' : 'none' }}
-                                onSubmit={handleLoginFormSubmit}
-                            >
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="email"
-                                        placeholder="Email"
-                                        name="email"
-                                        required
-                                        autoComplete="off"
-                                        className={cx('form-control')}
-                                        value={loginForm.email}
-                                        onChange={handleLoginFormChange}
-                                    />
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <input
-                                        type="password"
-                                        name="accountPassword"
-                                        id="accountPassword"
-                                        placeholder="accountPassword"
-                                        required
-                                        autoComplete="off"
-                                        className={cx('form-control')}
-                                        value={loginForm.accountPassword}
-                                        onChange={handleLoginFormChange}
-                                    />
-                                </div>
-                                <i className={cx('text')} style={{ color: 'red' }}>
-                                    {/* {message} */}
-                                </i>
-                                <div className={cx('checkBox')}>
-                                    <input type="checkbox" name="checkbox" id="checkbox" />
-                                    <span className={cx('text')}>Keep me signed in on this device</span>
-                                </div>
-                                <div className={cx('formGroup')}>
-                                    <button type="submit" name="op" value="login" className={cx('btn2')}>
-                                        LOGIN
-                                    </button>
-                                    <button type="submit" name="op" value="cancel" className={cx('btn2')}>
-                                        CANCEL
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                <form
+                                    className={cx('signUp')}
+                                    style={{ display: isLoginVisible ? 'none' : 'block' }}
+                                    onSubmit={handleSignupFormSubmit}
+                                >
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="text"
+                                            id="userName"
+                                            placeholder="User Name"
+                                            autoComplete="off"
+                                            name="userName"
+                                            value={signupForm.userName}
+                                            onChange={handleSignupFormChange}
+                                        />
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="email"
+                                            placeholder="Email ID"
+                                            name="email"
+                                            required
+                                            autoComplete="off"
+                                            value={signupForm.email}
+                                            onChange={handleSignupFormChange}
+                                        />
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="password"
+                                            id="accountaccountPassword"
+                                            placeholder="accountPassword"
+                                            required
+                                            autoComplete="off"
+                                            name="accountPassword"
+                                            value={signupForm.accountPassword}
+                                            onChange={handleSignupFormChange}
+                                        />
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="password"
+                                            id="confirmaccountPassword"
+                                            placeholder="Confirm accountPassword"
+                                            required
+                                            autoComplete="off"
+                                            name="confirmaccountPassword"
+                                        />
+                                    </div>
+                                    <div className={cx('checkBox')}>
+                                        <input type="checkbox" name="checkbox" id="checkbox" />
+                                        <span className={cx('text')}>I agree with terms & conditions</span>
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <button type="submit" name="op" value="signup" className={cx('btn2')}>
+                                            REGISTER
+                                        </button>
+                                    </div>
+                                </form>
+                                <form
+                                    className={cx('login')}
+                                    style={{ display: isLoginVisible ? 'block' : 'none' }}
+                                    onSubmit={handleLoginFormSubmit}
+                                >
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="email"
+                                            placeholder="Email"
+                                            name="email"
+                                            required
+                                            autoComplete="off"
+                                            className={cx('form-control')}
+                                            value={loginForm.email}
+                                            onChange={handleLoginFormChange}
+                                        />
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <input
+                                            type="password"
+                                            name="accountPassword"
+                                            id="accountPassword"
+                                            placeholder="accountPassword"
+                                            required
+                                            autoComplete="off"
+                                            className={cx('form-control')}
+                                            value={loginForm.accountPassword}
+                                            onChange={handleLoginFormChange}
+                                        />
+                                    </div>
+                                    <i className={cx('text')} style={{ color: 'red' }}>
+                                        {/* {message} */}
+                                    </i>
+                                    <div className={cx('checkBox')}>
+                                        <input type="checkbox" name="checkbox" id="checkbox" />
+                                        <span className={cx('text')}>Keep me signed in on this device</span>
+                                    </div>
+                                    <div className={cx('formGroup')}>
+                                        <button type="submit" name="op" value="login" className={cx('btn2')}>
+                                            LOGIN
+                                        </button>
+                                        <button type="submit" name="op" value="cancel" className={cx('btn2')}>
+                                            CANCEL
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>

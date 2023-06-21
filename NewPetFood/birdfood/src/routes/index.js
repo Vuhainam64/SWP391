@@ -1,5 +1,5 @@
 // Layouts
-import { HeaderOnly } from '~/components/Layout';
+import { AdminOnly, HeaderOnly } from '~/components/Layout';
 
 // Pages
 import Home from '~/pages/Home';
@@ -9,6 +9,7 @@ import Cart from '~/pages/Cart';
 import Detail from '~/pages/Detail';
 import Profile from '~/pages/Profile';
 import Admin from '~/pages/Admin';
+import Product from '~/pages/Admin/Product';
 
 // Public routes
 const publicRoutes = [
@@ -18,7 +19,8 @@ const publicRoutes = [
     { path: '/cart', component: Cart },
     { path: '/detail', component: Detail },
     { path: '/profile', component: Profile },
-    { path: '/admin', component: Admin, layout: HeaderOnly },
+    { path: '/admin', component: Admin, layout: AdminOnly },
+    { path: '/admin/products', component: Product, layout: AdminOnly },
 ];
 
 const privateRoutes = [];

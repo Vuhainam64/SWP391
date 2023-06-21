@@ -56,7 +56,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-    const [cookies] = useCookies(['isLoggedIn']);
+    const [cookies, removeCookie] = useCookies(['isLoggedIn']);
     const [currentUser, setCurrentUser] = useState(false);
 
     useEffect(() => {
@@ -74,7 +74,18 @@ function Header() {
         }
     };
 
+    const handleLogout = () => {
+        console.log('Logout clicked');
+        removeCookie('isLoggedIn', { path: '/' });
+        setCurrentUser(false);
+    };
+
     const userMenu = [
+        {
+            icon: <FontAwesomeIcon icon={faUser} />,
+            title: 'Admin Page',
+            to: '/admin',
+        },
         {
             icon: <FontAwesomeIcon icon={faUser} />,
             title: 'View profile',
@@ -91,6 +102,7 @@ function Header() {
             title: 'Log out',
             to: '/logout',
             separate: true,
+            onClick: handleLogout,
         },
     ];
 

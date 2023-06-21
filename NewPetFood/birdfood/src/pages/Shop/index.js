@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import request from '~/utils/request';
+import Cart from '../Cart';
 
 import styles from './Shop.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +18,7 @@ function Shop() {
     const [sortBy, setSortBy] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const productsPerPage = 8;
+    const [cartItems, setCartItems] = useState([]);
 
     useEffect(() => {
         request
@@ -33,6 +35,11 @@ function Shop() {
             })
             .catch((error) => console.log(error));
     }, []);
+
+    // Cart
+    const addToCart = (product) => {
+        setCartItems([...cartItems, product]);
+    };
 
     // Handle category change
     const handleCategoryChange = (event) => {
@@ -117,13 +124,14 @@ function Shop() {
                     {currentProducts.map((product) => (
                         <div className={cx('box')} key={product.productId}>
                             <div className={cx('icons')}>
-                                <Link to="/d">
+                                <Link to="#" onClick={() => addToCart(product)}>
                                     <FontAwesomeIcon icon={faCartShopping} />
                                 </Link>
+
                                 <Link to="/d">
                                     <FontAwesomeIcon icon={faHeart} />
                                 </Link>
-                                <Link to="/product/{product.productId}">
+                                <Link to={`/product/${product.productId}`}>
                                     <FontAwesomeIcon icon={faEye} />
                                 </Link>
                             </div>
@@ -149,6 +157,7 @@ function Shop() {
                     </button>
                 </div>
             </section>
+            <Cart cartItems={cartItems} />
         </>
     );
 }

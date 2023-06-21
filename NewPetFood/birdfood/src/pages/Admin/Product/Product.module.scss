@@ -1,0 +1,76 @@
+// Product.module.scss
+
+@import "~bootstrap/scss/functions"; // Import Bootstrap functions
+@import "~bootstrap/scss/variables"; // Import Bootstrap variables
+
+.product-container {
+    padding: 20px;
+
+    h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    > div {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+
+        label {
+            margin-right: 10px;
+        }
+
+        select,
+        input[type="text"],
+        input[type="checkbox"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        select {
+            width: 150px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+        }
+    }
+
+    button {
+        padding: 8px 16px;
+        border: none;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+
+    .product-table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        td:last-child {
+            display: flex;
+            gap: 5px;
+        }
+    }
+}
