@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import request from '~/utils/request';
 import styles from './Product.module.scss';
 import classNames from 'classnames/bind';
+
 const cx = classNames.bind(styles);
 
 function Product() {
@@ -52,13 +53,34 @@ function Product() {
     };
 
     const handleEdit = async (productId) => {
-        // Implement edit logic here
-        // Perform necessary API requests to update the product
+        console.log();
+        try {
+            // Perform necessary API requests to retrieve the product data
+            const response = await request.get(`product/${productId}`);
+            const productData = response.data;
+
+            // Modify the product data as needed
+
+            // Perform necessary API requests to update the product
+            await request.put(`product/${productId}`, productData);
+
+            // Fetch updated product list
+            fetchProducts();
+        } catch (error) {
+            console.error('Error editing product:', error);
+        }
     };
 
     const handleDelete = async (productId) => {
-        // Implement delete logic here
-        // Perform necessary API requests to remove the product
+        try {
+            // Perform necessary API requests to delete the product
+            await request.delete(`product/${productId}`);
+            console.log(productId);
+            // Fetch updated product list
+            fetchProducts();
+        } catch (error) {
+            console.error('Error deleting product:', error);
+        }
     };
 
     return (
@@ -107,7 +129,7 @@ function Product() {
                             <td>{product.productPrice}</td>
                             <td>
                                 <button onClick={() => handleEdit(product.productId)}>Edit</button>
-                                <button onClick={() => handleDelete(product.productId)}>Delete</button>
+                                <button onClick={() => handleDelete(product.productId)}>Disable</button>
                             </td>
                         </tr>
                     ))}
