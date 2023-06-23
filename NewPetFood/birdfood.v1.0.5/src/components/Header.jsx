@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
-import { MdShoppingBasket, MdAdd, MdLogout } from 'react-icons/md'
+import { MdAdd, MdLogout } from 'react-icons/md'
+import { FaShoppingCart } from 'react-icons/fa'
 import { motion } from "framer-motion";
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -79,7 +80,7 @@ function Header() {
                     </motion.ul>
 
                     <div className="relative flex items-center justify-center">
-                        <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer"/>
+                        <FaShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
                         <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg 
                         flex items-center justify-center">
                             <p className="text-sx text-white font-semibold">2</p>
@@ -125,7 +126,7 @@ function Header() {
             {/* mobile */}
             <div className="flex items-center justify-between md:hidden h-full">
                 <div className="relative flex items-center justify-center">
-                    <MdShoppingBasket className="text-textColor text-2xl ml-8 cursor-pointer"/>
+                    <FaShoppingCart className="text-textColor text-2xl ml-8 cursor-pointer"/>
                     <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-cartNumBg 
                     flex items-center justify-center">
                         <p className="text-sx text-white font-semibold">2</p>
