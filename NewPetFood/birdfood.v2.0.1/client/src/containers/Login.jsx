@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LoginBg, Logo } from "../assets";
 import { LoginInput } from "../components";
 import { FaEnvelope, FaLock, FcGoogle } from "../assets/icons";
@@ -14,6 +14,9 @@ import {
 } from "firebase/auth";
 import { app } from "../config/firebase.config";
 import { validateUserJWTToken } from "../api";
+import { setUserDetails } from "../context/actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
+import { alertInfo, alertWarning } from "../context/actions/alertAction";
 
 function Login() {
   const [userEmail, setUserEmail] = useState("");
@@ -25,6 +28,16 @@ function Login() {
   const provider = new GoogleAuthProvider();
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state.user);
+  const alert = useSelector((state) => state.alert);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/", { replace: true });
+    }
+  }, [user]);
 
   const loginWithGoogle = async () => {
     await signInWithPopup(firebaseAuth, provider).then((userCred) => {
@@ -32,7 +45,7 @@ function Login() {
         if (cred) {
           cred.getIdToken().then((token) => {
             validateUserJWTToken(token).then((data) => {
-              console.log(data);
+              dispatch(setUserDetails(data));
             });
             navigate("/", { replace: true });
           });
@@ -40,11 +53,10 @@ function Login() {
       });
     });
   };
-  // action
 
   const signUpWithEmailPass = async () => {
     if (userEmail === "" || password === "" || confirm_password === "") {
-      // alert message
+      dispatch(alertInfo("Required fieds should not be empty"));
     } else {
       if (password === confirm_password) {
         setUserEmail("");
@@ -59,7 +71,7 @@ function Login() {
             if (cred) {
               cred.getIdToken().then((token) => {
                 validateUserJWTToken(token).then((data) => {
-                  console.log(data);
+                  dispatch(setUserDetails(data));
                 });
                 navigate("/", { replace: true });
               });
@@ -67,7 +79,7 @@ function Login() {
           });
         });
       } else {
-        // alert message
+        dispatch(alertWarning("Password doesn't match"));
       }
     }
   };
@@ -80,7 +92,7 @@ function Login() {
             if (cred) {
               cred.getIdToken().then((token) => {
                 validateUserJWTToken(token).then((data) => {
-                  console.log(data);
+                  dispatch(setUserDetails(data));
                 });
               });
             }
@@ -88,7 +100,7 @@ function Login() {
         }
       );
     } else {
-      // alert message
+      dispatch(alertWarning("Password or email doesn't match"));
     }
   };
 
