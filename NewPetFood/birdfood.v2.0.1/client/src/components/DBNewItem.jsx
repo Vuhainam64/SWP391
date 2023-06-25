@@ -21,7 +21,7 @@ import { buttonClick } from "../animations";
 import { addNewProduct, getAllProducts } from "../api";
 import { setAllProducts } from "../context/actions/productActions";
 
-const DBNewItem = () => {
+function DBNewItem() {
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState(null);
@@ -219,7 +219,7 @@ const DBNewItem = () => {
       </div>
     </div>
   );
-};
+}
 
 export const InputValueField = ({
   type,

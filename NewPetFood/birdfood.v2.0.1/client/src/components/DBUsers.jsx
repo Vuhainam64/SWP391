@@ -5,7 +5,7 @@ import { Avatar } from "../assets";
 import { setAllUserDetails } from "../context/actions/allUsersAction";
 import DataTable from "./DataTable";
 
-const DBUsers = () => {
+function DBUsers() {
   const allUsers = useSelector((state) => state.allUsers);
   const dispatch = useDispatch();
 
@@ -87,6 +87,6 @@ const DBUsers = () => {
       />
     </div>
   );
-};
+}
 
 export default DBUsers;

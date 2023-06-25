@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Logo } from "../assets";
 import { isActiveStyles, isNotActiveStyles } from "../utils/styles";
 
-const DBLeftSection = () => {
+function DBLeftSection() {
   return (
     <div className="h-full py-12 flex flex-col bg-lightOverlay backdrop-blur-md shadow-md min-w-210 w-300 gap-3">
       <NavLink to={"/"} className="flex items-center justify-start px-6 gap-4">
@@ -82,6 +82,6 @@ const DBLeftSection = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DBLeftSection;

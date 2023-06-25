@@ -2,7 +2,7 @@ import React from "react";
 import MaterialTable from "material-table";
 import { ThemeProvider, createTheme } from "@mui/material";
 
-const DataTable = ({ columns, data, title, actions }) => {
+function DataTable({ columns, data, title, actions }) {
   const defaultMaterialTheme = createTheme();
 
   return (
@@ -15,6 +15,6 @@ const DataTable = ({ columns, data, title, actions }) => {
       />
     </ThemeProvider>
   );
-};
+}
 
 export default DataTable;

@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { setUserNull } from "../context/actions/userActions";
 import { app } from "../config/firebase.config";
 
-const DBHeader = () => {
+function DBHeader() {
   const user = useSelector((state) => state.user);
   const firebaseAuth = getAuth(app);
   const navigate = useNavigate();
@@ -77,6 +77,6 @@ const DBHeader = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DBHeader;

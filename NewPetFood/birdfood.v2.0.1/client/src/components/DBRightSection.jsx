@@ -9,7 +9,7 @@ import {
   DBUsers,
 } from "../components";
 
-const DBRightSection = () => {
+function DBRightSection() {
   return (
     <div className="flex flex-col py-12 px-12 flex-1 h-full">
       <DBHeader />
@@ -24,6 +24,6 @@ const DBRightSection = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DBRightSection;

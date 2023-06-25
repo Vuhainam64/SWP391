@@ -3,7 +3,7 @@ import React from "react";
 import { fadeInOut } from "../animations";
 import { BsExclamationTriangleFill, FaCheck } from "../assets/icons";
 
-const Alert = ({ type, message }) => {
+function Alert({ type, message }) {
   if (type === "success") {
     return (
       <motion.div
@@ -51,6 +51,6 @@ const Alert = ({ type, message }) => {
       </motion.div>
     );
   }
-};
+}
 
 export default Alert;

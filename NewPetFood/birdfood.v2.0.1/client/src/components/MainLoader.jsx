@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/css/Loader.css";
 
-const MainLoader = () => {
+function MainLoader() {
   return (
     <div className="flex items-center justify-center container">
       <svg width="100" height="100" viewBox="0 0 300 300">
@@ -106,6 +106,6 @@ const MainLoader = () => {
       </svg>
     </div>
   );
-};
+}
 
 export default MainLoader;

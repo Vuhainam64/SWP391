@@ -5,7 +5,7 @@ import { setAllProducts } from "../context/actions/productActions";
 
 import { CChart } from "@coreui/react-chartjs";
 
-const DBHome = () => {
+function DBHome() {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
@@ -97,6 +97,6 @@ const DBHome = () => {
       </div>
     </div>
   );
-};
+}
 
 export default DBHome;

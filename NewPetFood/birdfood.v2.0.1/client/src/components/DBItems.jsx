@@ -6,7 +6,7 @@ import { DataTable } from "../components";
 import { alertNULL, alertSuccess } from "../context/actions/alertAction";
 import { setAllProducts } from "../context/actions/productActions";
 
-const DBItems = () => {
+function DBItems() {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
   return (
@@ -76,6 +76,6 @@ const DBItems = () => {
       />
     </div>
   );
-};
+}
 
 export default DBItems;
