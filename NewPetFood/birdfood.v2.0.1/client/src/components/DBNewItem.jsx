@@ -133,7 +133,7 @@ const DBNewItem = () => {
           stateValue={price}
         />
 
-        <div className="w-full bg-card backdrop-blur-md h-370 rounded-md border-2 border-dotted border-gray-300 cursor-pointer">
+        <div className="w-full h-auto bg-card backdrop-blur-md rounded-md border-2 border-dotted border-gray-300 cursor-pointer">
           {isLoading ? (
             <div className="w-full h-full flex flex-col items-center justify-evenly px-24">
               <Spinner />
@@ -167,7 +167,7 @@ const DBNewItem = () => {
                 <>
                   <label>
                     <div className=" flex flex-col items-center justify-center h-full w-full cursor-pointer">
-                      <div className="flex flex-col justify-center items-center cursor-pointer">
+                      <div className="flex flex-col justify-center items-center cursor-pointer h-370 ">
                         <p className="font-bold text-4xl">
                           <FaCloudUploadAlt className="-rotate-0" />
                         </p>

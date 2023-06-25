@@ -18,7 +18,6 @@ export const validateUserJWTToken = async (token) => {
 
 // add new product
 export const addNewProduct = async (data) => {
-    console.log(data)
     try {
         const res = await axios.post(`${baseURL}/api/products/create`, {
             ...data
