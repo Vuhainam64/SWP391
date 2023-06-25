@@ -6,38 +6,38 @@ export const isNotActiveStyles =
 
 export const statuses = [{
         id: 1,
-        title: "Drinks",
-        category: "drinks"
+        title: "Seed",
+        category: "seed"
     },
     {
         id: 2,
-        title: "Deserts",
-        category: "deserts"
+        title: "Suet",
+        category: "suet"
     },
     {
         id: 3,
-        title: "Fruits",
-        category: "fruits"
+        title: "Nectar",
+        category: "nectar"
     },
     {
         id: 4,
-        title: "Rice",
-        category: "rice"
+        title: "Fruit",
+        category: "fruit"
     },
     {
         id: 5,
-        title: "Curry",
-        category: "curry"
+        title: "Insect",
+        category: "inset"
     },
     {
         id: 6,
-        title: "Chinese",
-        category: "chinese"
+        title: "Wet Food",
+        category: "wet food"
     },
     {
         id: 7,
-        title: "Bread",
-        category: "bread"
+        title: "Live Food",
+        category: "live food"
     },
 ];
 

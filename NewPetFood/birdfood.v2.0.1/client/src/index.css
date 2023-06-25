@@ -12,6 +12,9 @@ body {
         'Helvetica Neue', sans-serif;
 }
 
+.MuiPaper-root {
+    width: 100%;
+}
 
 @tailwind base;
 @tailwind components;
