@@ -157,7 +157,6 @@ Note: Coupon
 
 	1. Welcome Page
 	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/d042059c-3298-48f6-8748-5660a8c21e3a)
 
 ![Welcome Form](https://files.fullstack.edu.vn/f8-prod/public-images/649eca018b2a1.png)
 
@@ -175,11 +174,11 @@ not suitable, the system will notify an error.
 	3. Shop
 *View
 
-![View](https://files.fullstack.edu.vn/f8-prod/public-images/649ecab2356fe.png)
+![View](https://files.fullstack.edu.vn/f8-prod/public-images/649ecb2c284f9.png)
 
 
 
-	5. Cart
+	4. Cart
 
 ![image](https://files.fullstack.edu.vn/f8-prod/public-images/649ecad28e1d5.png)
 
