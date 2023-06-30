@@ -28,7 +28,6 @@ function DBUsers() {
               <img
                 src={rowData.photoURL ? rowData.photoURL : Avatar}
                 className="w-32 h-16 object-contain rounded-md"
-                alt=""
               />
             ),
           },
@@ -56,6 +55,34 @@ function DBUsers() {
         ]}
         data={allUsers}
         title="List of Users"
+        // actions={[
+        //   {
+        //     icon: "edit",
+        //     tooltip: "Edit Data",
+        //     onClick: (event, rowData) => {
+        //       alert("You want to edit " + rowData.productId);
+        //     },
+        //   },
+        //   {
+        //     icon: "delete",
+        //     tooltip: "Delete Data",
+        //     onClick: (event, rowData) => {
+        //       if (
+        //         window.confirm("Are you sure, you want to perform this aciton")
+        //       ) {
+        //         deleteAProduct(rowData.productId).then((res) => {
+        //           dispatch(alertSuccess("Product Deleted "));
+        //           setInterval(() => {
+        //             dispatch(alertNULL());
+        //           }, 3000);
+        //           getAllProducts().then((data) => {
+        //             dispatch(setAllProducts(data));
+        //           });
+        //         });
+        //       }
+        //     },
+        //   },
+        // ]}
       />
     </div>
   );
