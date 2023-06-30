@@ -1,4 +1,4 @@
-# SWP391
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/50189b6c-6260-4a54-8a95-1dccb5934dc4)# SWP391
 
 ![FPT logo](https://github.com/Vuhainam64/SWP391/assets/87472661/a59e8385-2bf6-476d-a7b3-34d4e64e74b1)
 
@@ -159,7 +159,7 @@ Note: Coupon
 	
 ![image](https://github.com/Vuhainam64/SWP391/assets/87472661/d042059c-3298-48f6-8748-5660a8c21e3a)
 
-![Welcome Form](https://github.com/Vuhainam64/SWP391/assets/87472661/0333bce7-bc13-480e-9ddd-6a4b96c16082)
+![Welcome Form](https://files.fullstack.edu.vn/f8-prod/public-images/649eca018b2a1.png)
 
 	2. Login Page
 - Function trigger: when user provides correct information and clicks on login button.
@@ -170,34 +170,18 @@ Note: Coupon
 - Function details: data that the user provides must be contained in the database. If the data is
 not suitable, the system will notify an error.
 
-![Login Form](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
+![Login Form](https://files.fullstack.edu.vn/f8-prod/public-images/649eca576be67.png)
 
 	3. Shop
 *View
 
-![View](https://github.com/Vuhainam64/SWP391/assets/87472661/d048309d-bc2b-4e02-987e-39ae7cee2984)
+![View](https://files.fullstack.edu.vn/f8-prod/public-images/649ecab2356fe.png)
 
-*Category
-
-![Category](https://github.com/Vuhainam64/SWP391/assets/87472661/faef6e0c-700f-42e7-ac7f-e51ff60d7cd4)
-
-*Sort
-
-![Sort](https://github.com/Vuhainam64/SWP391/assets/87472661/29440b47-e2d5-46b4-91bc-c7166e6103ed)
-
-*Page Count
-
-![Page Count](https://github.com/Vuhainam64/SWP391/assets/87472661/53b54b8c-cf5f-4291-bcda-8df68c6caf03)
-
-
-	4. Detail
-	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/4822832a-4588-45a3-9395-a287eab735f9)
 
 
 	5. Cart
 
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/85aa64a6-7ea2-43bb-8398-21f37c15a47f)
+![image](https://files.fullstack.edu.vn/f8-prod/public-images/649ecad28e1d5.png)
 
 
 
