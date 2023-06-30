@@ -1,4 +1,4 @@
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/50189b6c-6260-4a54-8a95-1dccb5934dc4)# SWP391
+# SWP391
 
 ![FPT logo](https://github.com/Vuhainam64/SWP391/assets/87472661/a59e8385-2bf6-476d-a7b3-34d4e64e74b1)
 
@@ -182,6 +182,23 @@ not suitable, the system will notify an error.
 
 ![image](https://files.fullstack.edu.vn/f8-prod/public-images/649ecad28e1d5.png)
 
+	5. DashBoard
+
+*Home
+
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/e0741cc9-d803-4e23-99f6-c2cd879266a4)
+
+*Orders
+
+*Items
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/528d5ebc-634b-4eec-8d7a-edcb55d45f4e)
+
+*Add New Item
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/495aba2d-30d6-4c87-8fc5-f02504f450db)
+
+* Users
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/83c6fb8c-224c-485c-9ff3-8c48ba4413e5)
 
 
+	6. Payment
 
