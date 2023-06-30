@@ -87,7 +87,6 @@ export const getAllCartItems = async (user_id) => {
 
 // cart increment
 export const increaseItemQuantity = async (user_id, productId, type) => {
-  console.log(user_id, productId, type);
   try {
     const res = await axios.post(
       `${baseURL}/api/products/updateCart/${user_id}`,

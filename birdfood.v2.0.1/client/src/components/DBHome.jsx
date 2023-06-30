@@ -7,6 +7,7 @@ import { CChart } from "@coreui/react-chartjs";
 
 function DBHome() {
   const products = useSelector((state) => state.products);
+
   const dispatch = useDispatch();
 
   const seed = products?.filter((item) => item.product_category === "seed");

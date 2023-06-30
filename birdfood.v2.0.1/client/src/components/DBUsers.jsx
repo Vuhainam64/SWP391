@@ -2,20 +2,36 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../api";
 import { Avatar } from "../assets";
-import { setAllUserDetails } from "../context/actions/allUsersAction";
+import {
+  getAllUserDetails,
+  setAllUserDetails,
+} from "../context/actions/allUsersAction";
 import DataTable from "./DataTable";
+import MainLoader from "./MainLoader";
 
 function DBUsers() {
   const allUsers = useSelector((state) => state.allUsers);
+  const isLoading = useSelector((state) => state.isLoading);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (!allUsers) {
-      getAllUsers().then((data) => {
-        dispatch(setAllUserDetails(data));
-      });
+      dispatch(getAllUserDetails()); // Dispatch action to indicate loading state
+      getAllUsers()
+        .then((data) => {
+          dispatch(setAllUserDetails(data));
+        })
+        .catch((error) => {
+          console.log("Error fetching users:", error);
+          dispatch(setAllUserDetails([])); // Set empty array to indicate no users
+        });
     }
   }, []);
+
+  if (isLoading) {
+    return <MainLoader />;
+  }
 
   return (
     <div className="flex items-center justify-self-center gap-4 pt-6 w-full">
@@ -54,7 +70,7 @@ function DBUsers() {
             ),
           },
         ]}
-        data={allUsers}
+        data={allUsers || []} // Provide an empty array as fallback if allUsers is null
         title="List of Users"
       />
     </div>
