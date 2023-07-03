@@ -157,9 +157,8 @@ Note: Coupon
 
 	1. Welcome Page
 	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/d042059c-3298-48f6-8748-5660a8c21e3a)
 
-![Welcome Form](https://github.com/Vuhainam64/SWP391/assets/87472661/0333bce7-bc13-480e-9ddd-6a4b96c16082)
+![Welcome Form](https://files.fullstack.edu.vn/f8-prod/public-images/649eca018b2a1.png)
 
 	2. Login Page
 - Function trigger: when user provides correct information and clicks on login button.
@@ -170,35 +169,36 @@ Note: Coupon
 - Function details: data that the user provides must be contained in the database. If the data is
 not suitable, the system will notify an error.
 
-![Login Form](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
+![Login Form](https://files.fullstack.edu.vn/f8-prod/public-images/649eca576be67.png)
 
 	3. Shop
 *View
 
-![View](https://github.com/Vuhainam64/SWP391/assets/87472661/d048309d-bc2b-4e02-987e-39ae7cee2984)
-
-*Category
-
-![Category](https://github.com/Vuhainam64/SWP391/assets/87472661/faef6e0c-700f-42e7-ac7f-e51ff60d7cd4)
-
-*Sort
-
-![Sort](https://github.com/Vuhainam64/SWP391/assets/87472661/29440b47-e2d5-46b4-91bc-c7166e6103ed)
-
-*Page Count
-
-![Page Count](https://github.com/Vuhainam64/SWP391/assets/87472661/53b54b8c-cf5f-4291-bcda-8df68c6caf03)
-
-
-	4. Detail
-	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/4822832a-4588-45a3-9395-a287eab735f9)
-
-
-	5. Cart
-
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/85aa64a6-7ea2-43bb-8398-21f37c15a47f)
+![View](https://files.fullstack.edu.vn/f8-prod/public-images/649ecb2c284f9.png)
 
 
 
+	4. Cart
+
+![image](https://files.fullstack.edu.vn/f8-prod/public-images/649ecad28e1d5.png)
+
+	5. DashBoard
+
+*Home
+
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/e0741cc9-d803-4e23-99f6-c2cd879266a4)
+
+*Orders
+
+*Items
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/528d5ebc-634b-4eec-8d7a-edcb55d45f4e)
+
+*Add New Item
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/495aba2d-30d6-4c87-8fc5-f02504f450db)
+
+* Users
+![image](https://github.com/Vuhainam64/SWP391/assets/87472661/83c6fb8c-224c-485c-9ff3-8c48ba4413e5)
+
+
+	6. Payment
 
