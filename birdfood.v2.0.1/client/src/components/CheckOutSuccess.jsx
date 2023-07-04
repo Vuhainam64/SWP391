@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FaArrowLeft } from "../assets/icons";
 import { NavLink } from "react-router-dom";
 import { Bill } from "../assets";
 import { Header } from "../components";
 import { motion } from "framer-motion";
 import { buttonClick } from "../animations";
-import { useSelector } from "react-redux";
 
 function CheckoutSuccess() {
   return (

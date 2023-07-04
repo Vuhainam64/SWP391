@@ -29,8 +29,24 @@ function Cart() {
     }
   }, [cart]);
 
+  // const handleCheckOut = () => {
+  //   console.log("click");
+  //   const data = {
+  //     user: user,
+  //     cart: cart,
+  //     total: total,
+  //   };
+  //   axios
+  //     .post(`${baseURL}/api/products/create-checkout-session`, { data })
+  //     .then((res) => {
+  //       if (res.data.url) {
+  //         window.location.href = res.data.url;
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   const handleCheckOut = () => {
-    console.log("click");
     const data = {
       user: user,
       cart: cart,
@@ -39,6 +55,7 @@ function Cart() {
     axios
       .post(`${baseURL}/api/products/create-checkout-session`, { data })
       .then((res) => {
+        console.log(res);
         if (res.data.url) {
           window.location.href = res.data.url;
         }
