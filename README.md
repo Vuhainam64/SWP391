@@ -151,7 +151,8 @@ Note: Coupon
 
 
 # Mô Hình EDR
-![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/c160b7dd-910f-409c-a7de-6a9135b52aa2)
+![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/c2ef66aa-fede-4a4d-9462-04b02f822b11)
+
 
 # Funtion Requirment 
 
