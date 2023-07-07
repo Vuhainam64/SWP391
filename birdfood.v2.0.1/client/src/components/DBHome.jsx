@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProducts } from "../api";
+import { getAllOrder, getAllProducts } from "../api";
 import { setAllProducts } from "../context/actions/productActions";
 
 import { CChart } from "@coreui/react-chartjs";
+import { setOrders } from "../context/actions/ordersAction";
 
 function DBHome() {
   const products = useSelector((state) => state.products);
+  const orders = useSelector((state) => state.orders);
 
   const dispatch = useDispatch();
 
@@ -22,10 +24,22 @@ function DBHome() {
     (item) => item.product_category === "live food"
   );
 
+  const preparing = orders?.filter((order) => order.sts === "preparing");
+  const delivered = orders?.filter((order) => order.sts === "delivered");
+  const cancelled = orders?.filter((order) => order.sts === "cancelled");
+
   useEffect(() => {
     if (!products) {
       getAllProducts().then((data) => {
         dispatch(setAllProducts(data));
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!orders) {
+      getAllOrder().then((data) => {
+        dispatch(setOrders(data));
       });
     }
   }, []);
@@ -63,6 +77,16 @@ function DBHome() {
                   },
                 ],
               }}
+              options={{
+                scales: {
+                  y: {
+                    ticks: {
+                      stepSize: 1, // Chỉ số bước nhảy giữa các giá trị trên trục y
+                      precision: 0, // Số chữ số sau dấu phẩy (không có số thập phân)
+                    },
+                  },
+                },
+              }}
               labels="months"
             />
           </div>
@@ -72,13 +96,7 @@ function DBHome() {
             <CChart
               type="doughnut"
               data={{
-                labels: [
-                  "Orders",
-                  "Delivered",
-                  "Cancelled",
-                  "Paid",
-                  "Not Paid",
-                ],
+                labels: ["Orders", "Delivered", "Preparing", "Cancelled"],
                 datasets: [
                   {
                     backgroundColor: [
@@ -88,7 +106,12 @@ function DBHome() {
                       "#FFD100",
                       "#FF00FB",
                     ],
-                    data: [40, 20, 80, 34, 54],
+                    data: [
+                      delivered?.length + cancelled?.length + preparing?.length,
+                      delivered?.length,
+                      preparing?.length,
+                      cancelled?.length,
+                    ],
                   },
                 ],
               }}
