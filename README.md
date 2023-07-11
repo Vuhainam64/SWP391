@@ -154,52 +154,6 @@ Note: Coupon
 ![EDR](https://github.com/Vuhainam64/SWP391/assets/87472661/c2ef66aa-fede-4a4d-9462-04b02f822b11)
 
 
-# Funtion Requirment 
-
-	1. Welcome Page
-	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/d042059c-3298-48f6-8748-5660a8c21e3a)
-
-![Welcome Form](https://github.com/Vuhainam64/SWP391/assets/87472661/0333bce7-bc13-480e-9ddd-6a4b96c16082)
-
-	2. Login Page
-- Function trigger: when user provides correct information and clicks on login button.
-- Function description:
-+ Roles: include guests, students, mentors, and admin.
-+ Purpose: confirm and authorise the user's information.
-+ Data processing: process email and password of users.
-- Function details: data that the user provides must be contained in the database. If the data is
-not suitable, the system will notify an error.
-
-![Login Form](https://github.com/Vuhainam64/SWP391/assets/87472661/56bf28a6-3329-47ea-bd3e-ae89a091a0d5)
-
-	3. Shop
-*View
-
-![View](https://github.com/Vuhainam64/SWP391/assets/87472661/d048309d-bc2b-4e02-987e-39ae7cee2984)
-
-*Category
-
-![Category](https://github.com/Vuhainam64/SWP391/assets/87472661/faef6e0c-700f-42e7-ac7f-e51ff60d7cd4)
-
-*Sort
-
-![Sort](https://github.com/Vuhainam64/SWP391/assets/87472661/29440b47-e2d5-46b4-91bc-c7166e6103ed)
-
-*Page Count
-
-![Page Count](https://github.com/Vuhainam64/SWP391/assets/87472661/53b54b8c-cf5f-4291-bcda-8df68c6caf03)
-
-
-	4. Detail
-	
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/4822832a-4588-45a3-9395-a287eab735f9)
-
-
-	5. Cart
-
-![image](https://github.com/Vuhainam64/SWP391/assets/87472661/85aa64a6-7ea2-43bb-8398-21f37c15a47f)
-
 
 
 
