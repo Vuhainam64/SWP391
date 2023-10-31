@@ -2,9 +2,7 @@ const router = require("express").Router();
 const admin = require("firebase-admin");
 const db = admin.firestore();
 const express = require("express");
-db.settings({
-  ignoreUndefinedProperties: true
-});
+db.settings({ ignoreUndefinedProperties: true });
 const stripe = require("stripe")(process.env.STRIPE_KEY);
 
 router.post("/create", async (req, res) => {
@@ -20,15 +18,9 @@ router.post("/create", async (req, res) => {
 
     const response = await db.collection("products").doc(`/${id}/`).set(data);
     console.log(response);
-    return res.status(200).send({
-      success: true,
-      data: response
-    });
+    return res.status(200).send({ success: true, data: response });
   } catch (err) {
-    return res.send({
-      success: false,
-      msg: `Error :${err}`
-    });
+    return res.send({ success: false, msg: `Error :${err}` });
   }
 });
 
@@ -41,21 +33,13 @@ router.get("/all", async (req, res) => {
       await query.get().then((querysnap) => {
         let docs = querysnap.docs;
         docs.map((doc) => {
-          response.push({
-            ...doc.data()
-          });
+          response.push({ ...doc.data() });
         });
         return response;
       });
-      return res.status(200).send({
-        success: true,
-        data: response
-      });
+      return res.status(200).send({ success: true, data: response });
     } catch (err) {
-      return res.send({
-        success: false,
-        msg: `Error :${err}`
-      });
+      return res.send({ success: false, msg: `Error :${err}` });
     }
   })();
 });
@@ -68,16 +52,10 @@ router.delete("/delete/:productId", async (req, res) => {
       .doc(`/${productId}/`)
       .delete()
       .then((result) => {
-        return res.status(200).send({
-          success: true,
-          data: result
-        });
+        return res.status(200).send({ success: true, data: result });
       });
   } catch (err) {
-    return res.send({
-      success: false,
-      msg: `Error :${err}`
-    });
+    return res.send({ success: false, msg: `Error :${err}` });
   }
 });
 
@@ -101,13 +79,8 @@ router.post("/addToCart/:userId", async (req, res) => {
         .doc(`/${userId}/`)
         .collection("items")
         .doc(`/${productId}/`)
-        .update({
-          quantity
-        });
-      return res.status(200).send({
-        success: true,
-        data: updatedItem
-      });
+        .update({ quantity });
+      return res.status(200).send({ success: true, data: updatedItem });
     } else {
       const data = {
         productId: productId,
@@ -123,16 +96,10 @@ router.post("/addToCart/:userId", async (req, res) => {
         .collection("items")
         .doc(`/${productId}/`)
         .set(data);
-      return res.status(200).send({
-        success: true,
-        data: addItems
-      });
+      return res.status(200).send({ success: true, data: addItems });
     }
   } catch (err) {
-    return res.send({
-      success: false,
-      msg: `Error :${err}`
-    });
+    return res.send({ success: false, msg: `Error :${err}` });
   }
 });
 
@@ -158,13 +125,8 @@ router.post("/updateCart/:user_id", async (req, res) => {
           .doc(`/${userId}/`)
           .collection("items")
           .doc(`/${productId}/`)
-          .update({
-            quantity
-          });
-        return res.status(200).send({
-          success: true,
-          data: updatedItem
-        });
+          .update({ quantity });
+        return res.status(200).send({ success: true, data: updatedItem });
       } else {
         if (doc.data().quantity === 1) {
           await db
@@ -174,10 +136,7 @@ router.post("/updateCart/:user_id", async (req, res) => {
             .doc(`/${productId}/`)
             .delete()
             .then((result) => {
-              return res.status(200).send({
-                success: true,
-                data: result
-              });
+              return res.status(200).send({ success: true, data: result });
             });
         } else {
           const quantity = doc.data().quantity - 1;
@@ -186,21 +145,13 @@ router.post("/updateCart/:user_id", async (req, res) => {
             .doc(`/${userId}/`)
             .collection("items")
             .doc(`/${productId}/`)
-            .update({
-              quantity
-            });
-          return res.status(200).send({
-            success: true,
-            data: updatedItem
-          });
+            .update({ quantity });
+          return res.status(200).send({ success: true, data: updatedItem });
         }
       }
     }
   } catch (err) {
-    return res.send({
-      success: false,
-      msg: `Error :${err}`
-    });
+    return res.send({ success: false, msg: `Error :${err}` });
   }
 });
 
@@ -219,26 +170,18 @@ router.get("/getCartItems/:user_id", async (req, res) => {
         let docs = querysnap.docs;
 
         docs.map((doc) => {
-          response.push({
-            ...doc.data()
-          });
+          response.push({ ...doc.data() });
         });
         return response;
       });
-      return res.status(200).send({
-        success: true,
-        data: response
-      });
+      return res.status(200).send({ success: true, data: response });
     } catch (er) {
-      return res.send({
-        success: false,
-        msg: `Error :,${er}`
-      });
+      return res.send({ success: false, msg: `Error :,${er}` });
     }
   })();
 });
+
 router.post("/create-checkout-session", async (req, res) => {
-  console.log('checkout')
   const customer = await stripe.customers.create({
     metadata: {
       user_id: req.body.data.user.user_id,
@@ -250,7 +193,7 @@ router.post("/create-checkout-session", async (req, res) => {
   const line_items = req.body.data.cart.map((item) => {
     return {
       price_data: {
-        currency: "usd",
+        currency: "inr",
         product_data: {
           name: item.product_name,
           images: [item.imageURL],
@@ -266,29 +209,20 @@ router.post("/create-checkout-session", async (req, res) => {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    shipping_address_collection: {
-      allowed_countries: ["VN"]
-    },
-    shipping_options: [{
-      shipping_rate_data: {
-        type: "fixed_amount",
-        fixed_amount: {
-          amount: 0,
-          currency: "usd"
-        },
-        display_name: "Free shipping",
-        delivery_estimate: {
-          minimum: {
-            unit: "hour",
-            value: 5
-          },
-          maximum: {
-            unit: "hour",
-            value: 10
+    shipping_address_collection: { allowed_countries: ["IN"] },
+    shipping_options: [
+      {
+        shipping_rate_data: {
+          type: "fixed_amount",
+          fixed_amount: { amount: 0, currency: "inr" },
+          display_name: "Free shipping",
+          delivery_estimate: {
+            minimum: { unit: "hour", value: 2 },
+            maximum: { unit: "hour", value: 4 },
           },
         },
       },
-    }, ],
+    ],
     phone_number_collection: {
       enabled: true,
     },
@@ -300,9 +234,7 @@ router.post("/create-checkout-session", async (req, res) => {
     cancel_url: `${process.env.CLIENT_URL}/`,
   });
 
-  res.send({
-    url: session.url
-  });
+  res.send({ url: session.url });
 });
 
 let endpointSecret;
@@ -310,9 +242,7 @@ let endpointSecret;
 
 router.post(
   "/webhook",
-  express.raw({
-    type: "application/json"
-  }),
+  express.raw({ type: "application/json" }),
   (req, res) => {
     const sig = req.headers["stripe-signature"];
 
@@ -337,8 +267,8 @@ router.post(
     // Handle the event
     if (eventType === "checkout.session.completed") {
       stripe.customers.retrieve(data.customer).then((customer) => {
-        console.log("Customer details", customer);
-        console.log("Data", data);
+        // console.log("Customer details", customer);
+        // console.log("Data", data);
         createOrder(customer, data, res);
       });
     }
@@ -372,9 +302,7 @@ const createOrder = async (customer, intent, res) => {
     deleteCart(customer.metadata.user_id, JSON.parse(customer.metadata.cart));
     console.log("*****************************************");
 
-    return res.status(200).send({
-      success: true
-    });
+    return res.status(200).send({ success: true });
   } catch (err) {
     console.log(err);
   }
