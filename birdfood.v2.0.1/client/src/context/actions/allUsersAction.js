@@ -1,11 +1,11 @@
-export const setAllUserDetails = (data) => {
+export const setAllUsers = (data) => {
   return {
     type: "SET_ALL_USER",
     allUsers: data,
   };
 };
 
-export const getAllUserDetails = (data) => {
+export const getAllUsers = (data) => {
   return {
     type: "GET_ALL_USER",
   };

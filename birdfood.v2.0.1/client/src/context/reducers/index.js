@@ -1,4 +1,6 @@
-import { combineReducers } from "redux";
+import {
+  combineReducers
+} from "redux";
 import alertReducer from "./alertReducer";
 import userReducer from "./userReducer";
 import productReducer from "./productReducer";

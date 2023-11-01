@@ -2,32 +2,28 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllUsers } from "../api";
 import { Avatar } from "../assets";
-import {
-  getAllUserDetails,
-  setAllUserDetails,
-} from "../context/actions/allUsersAction";
 import DataTable from "./DataTable";
 import MainLoader from "./MainLoader";
+import { setAllUsers } from "../context/actions/allUsersAction";
 
 function DBUsers() {
-  const allUsers = useSelector((state) => state.allUsers);
+  const allUsers = useSelector((state) => state?.allUsers.allUsers);
   const isLoading = useSelector((state) => state.isLoading);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!allUsers) {
-      dispatch(getAllUserDetails()); // Dispatch action to indicate loading state
-      getAllUsers()
-        .then((data) => {
-          dispatch(setAllUserDetails(data));
-        })
-        .catch((error) => {
-          console.log("Error fetching users:", error);
-          dispatch(setAllUserDetails([])); // Set empty array to indicate no users
-        });
+    async function fetchUsers() {
+      try {
+        const usersData = await getAllUsers();
+        dispatch(setAllUsers(usersData));
+      } catch (error) {
+        console.log("Error fetching roles:", error);
+        dispatch(setAllUsers([]));
+      }
     }
-  }, []);
+    fetchUsers();
+  }, [dispatch]);
 
   if (isLoading) {
     return <MainLoader />;

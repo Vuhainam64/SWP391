@@ -4,8 +4,10 @@ function allUserReducer(state = null, action) {
       return state;
 
     case "SET_ALL_USER":
-      return action.allUsers;
-
+      return {
+        ...state,
+        allUsers: action.allUsers,
+      };
     default:
       return state;
   }

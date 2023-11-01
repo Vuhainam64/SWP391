@@ -5,7 +5,7 @@ import { setOrders } from "../context/actions/ordersAction";
 import { OrderData } from "../components";
 
 function DBOrders() {
-  const orders = useSelector((state) => state.orders);
+  const orders = useSelector((state) => state?.orders);
   const dispatch = useDispatch();
 
   useEffect(() => {
