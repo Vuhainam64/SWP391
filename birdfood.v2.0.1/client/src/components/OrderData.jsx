@@ -16,7 +16,8 @@ function OrderData({ index, data, admin }) {
       });
     });
   };
-
+  const { shipping_details = {} } = data;
+  const name = shipping_details.name ?? "Name";
   return (
     <motion.div
       {...staggerFadeInOut(index)}
@@ -113,19 +114,18 @@ function OrderData({ index, data, admin }) {
 
         <div className="flex items-start justify-start flex-col gap-2 px-6 ml-auto w-full md:w-460">
           <h1 className="text-lg text-headingColor font-semibold">
-            {data.shipping_details.name}
+            {data.shipping_details?.name}
           </h1>
 
           <p className="text-base text-headingColor -mt-2">
-            {data.customer.email} {data.customer.phone}
+            {data.customer?.email} {data.customer?.phone}
           </p>
 
           <p className="text-base text-textColor -mt-2">
-            {data.shipping_details.address.line1},
-            {data.shipping_details.address.line2}{" "}
-            {data.shipping_details.address.country},
-            {data.shipping_details.address.state} -
-            {data.shipping_details.address.postal_code}
+            {data.shipping_details?.address.line2}{" "}
+            {data.shipping_details?.address.country},
+            {data.shipping_details?.address.state} -
+            {data.shipping_details?.address.postal_code}
           </p>
         </div>
       </div>

@@ -238,11 +238,82 @@ router.get("/getCartItems/:user_id", async (req, res) => {
   })();
 });
 
+
+//router.post("/create-checkout-session", async (req, res) => {
+//   console.log('checkout')
+//   const customer = await stripe.customers.create({
+//     metadata: {
+//       user_id: req.body.data.user.user_id,
+//       cart: JSON.stringify(req.body.data.cart),
+//       total: req.body.data.total,
+//     },
+//   });
+
+//   const line_items = req.body.data.cart.map((item) => {
+//     return {
+//       price_data: {
+//         currency: "usd",
+//         product_data: {
+//           name: item.product_name,
+//           images: [item.imageURL],
+//           metadata: {
+//             id: item.productId,
+//           },
+//         },
+//         unit_amount: item.product_price * 100,
+//       },
+//       quantity: item.quantity,
+//     };
+//   });
+
+//   const session = await stripe.checkout.sessions.create({
+//     payment_method_types: ["card"],
+//     shipping_address_collection: {
+//       allowed_countries: ["VN"]
+//     },
+//     shipping_options: [{
+//       shipping_rate_data: {
+//         type: "fixed_amount",
+//         fixed_amount: {
+//           amount: 0,
+//           currency: "usd"
+//         },
+//         display_name: "Free shipping",
+//         delivery_estimate: {
+//           minimum: {
+//             unit: "hour",
+//             value: 5
+//           },
+//           maximum: {
+//             unit: "hour",
+//             value: 10
+//           },
+//         },
+//       },
+//     }, ],
+//     phone_number_collection: {
+//       enabled: true,
+//     },
+
+//     line_items,
+//     customer: customer.id,
+//     mode: "payment",
+//     success_url: `${process.env.CLIENT_URL}/checkout-success`,
+//     cancel_url: `${process.env.CLIENT_URL}/`,
+//   });
+
+//   res.send({
+//     url: session.url
+//   });
+// });
+
+
+
 router.post("/create-checkout-session", async (req, res) => {
   const line_items = req.body.data.cart.map((item) => {
     return {
       price_data: {
-        currency: "vnd",
+        currency: "usd",
         product_data: {
           name: item.product_name,
           images: [item.imageURL],
@@ -266,7 +337,7 @@ router.post("/create-checkout-session", async (req, res) => {
         type: "fixed_amount",
         fixed_amount: {
           amount: 0,
-          currency: "vnd"
+          currency: "usd"
         },
         display_name: "Free shipping",
         delivery_estimate: {
@@ -294,10 +365,50 @@ router.post("/create-checkout-session", async (req, res) => {
   res.send({
     url: session.url
   });
-  createOrder(customer, data, res);
-
 });
 
+let endpointSecret;
+// endpointSecret = process.env.WEBHOOK_SECRET;
+
+router.post(
+  "/webhook",
+  express.raw({
+    type: "application/json"
+  }),
+  (req, res) => {
+    const sig = req.headers["stripe-signature"];
+
+    let eventType;
+    let data;
+
+    if (endpointSecret) {
+      let event;
+      try {
+        event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+      } catch (err) {
+        res.status(400).send(`Webhook Error: ${err.message}`);
+        return;
+      }
+      data = event.data.object;
+      eventType = event.type;
+    } else {
+      data = req.body.data.object;
+      eventType = req.body.type;
+    }
+
+    // Handle the event
+    if (eventType === "checkout.session.completed") {
+      stripe.customers.retrieve(data.customer).then((customer) => {
+        console.log("Customer details", customer);
+        console.log("Data", data);
+        createOrder(customer, data, res);
+      });
+    }
+
+    // Return a 200 res to acknowledge receipt of the event
+    res.send().end();
+  }
+);
 
 const createOrder = async (customer, intent, res) => {
   console.log("Inside the orders");

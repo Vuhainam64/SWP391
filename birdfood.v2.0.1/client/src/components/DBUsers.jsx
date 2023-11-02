@@ -7,7 +7,7 @@ import MainLoader from "./MainLoader";
 import { setAllUsers } from "../context/actions/allUsersAction";
 
 function DBUsers() {
-  const allUsers = useSelector((state) => state?.allUsers.allUsers);
+  const allUsers = useSelector((state) => state?.allUsers?.allUsers);
   const isLoading = useSelector((state) => state.isLoading);
 
   const dispatch = useDispatch();
